@@ -1,0 +1,28 @@
+# ---- compilacion Maven ----
+target/
+*.class
+*.jar
+
+# ---- base de datos local (SQLite) ----
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+
+# ---- empaquetado del ejecutable ----
+dist/
+build/staging/
+
+# ---- entornos e IDE ----
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# ---- logs y temporales ----
+*.log
+hs_err_pid*
+replay_pid*
+~$*

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import atlantafx.base.controls.CustomTextField?>
+<?import com.mantenimiento.cmms.ui.Paginador?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mantenimiento.cmms.controller.EquipoController"
+      styleClass="pagina">
+
+    <fx:define>
+        <VBox fx:id="panelFormulario" styleClass="drawer" prefWidth="470.0" maxWidth="470.0" maxHeight="Infinity">
+            <HBox styleClass="drawer-header">
+                <StackPane styleClass="drawer-icono"><FontIcon iconLiteral="fth-box"/></StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                    <Label fx:id="lblTituloFormulario" text="Nuevo equipo" styleClass="drawer-titulo"/>
+                    <Label fx:id="lblSubtituloFormulario" text="Registra un activo" styleClass="drawer-subtitulo"/>
+                </VBox>
+                <Button onAction="#onCerrarFormulario" styleClass="flat,button-circle">
+                    <graphic><FontIcon iconLiteral="fth-x"/></graphic>
+                </Button>
+            </HBox>
+
+            <StackPane fx:id="fotoCabecera" styleClass="drawer-foto"
+                       prefHeight="132.0" minHeight="132.0" maxHeight="132.0">
+                <HBox alignment="BOTTOM_LEFT" spacing="7.0" styleClass="drawer-foto-capota">
+                    <FontIcon iconLiteral="fth-camera"/>
+                    <Label fx:id="lblFotoCategoria" text="Elige una categoria"
+                           styleClass="drawer-foto-texto"/>
+                </HBox>
+            </StackPane>
+
+            <ScrollPane fitToWidth="true" styleClass="drawer-scroll" VBox.vgrow="ALWAYS">
+                <VBox styleClass="drawer-body">
+                    <Label text="IDENTIFICACION" styleClass="seccion-form"/>
+
+                    <HBox spacing="14.0">
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Codigo *" styleClass="campo-label"/>
+                            <TextField fx:id="txtCodigo" promptText="Ej. E-01"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS" prefWidth="260.0">
+                            <Label text="Estado" styleClass="campo-label"/>
+                            <ComboBox fx:id="cmbEstado"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                    </HBox>
+
+                    <VBox styleClass="campo">
+                        <Label text="Nombre *" styleClass="campo-label"/>
+                        <TextField fx:id="txtNombre" promptText="Ej. Compresor de aire 01"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+
+                    <HBox spacing="14.0">
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Categoria *" styleClass="campo-label"/>
+                            <ComboBox fx:id="cmbCategoria" promptText="Selecciona"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Ubicacion *" styleClass="campo-label"/>
+                            <ComboBox fx:id="cmbUbicacion" promptText="Selecciona"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                    </HBox>
+
+                    <Label text="FICHA TECNICA" styleClass="seccion-form"/>
+
+                    <HBox spacing="14.0">
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Fabricante" styleClass="campo-label"/>
+                            <TextField fx:id="txtFabricante" promptText="Ej. Atlas Copco"/>
+                        </VBox>
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Modelo" styleClass="campo-label"/>
+                            <TextField fx:id="txtModelo" promptText="Ej. GA-15"/>
+                        </VBox>
+                    </HBox>
+
+                    <HBox spacing="14.0">
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Numero de serie" styleClass="campo-label"/>
+                            <TextField fx:id="txtSerie" promptText="Serie / tag"/>
+                        </VBox>
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Fecha de instalacion" styleClass="campo-label"/>
+                            <DatePicker fx:id="dpInstalacion" promptText="dd/mm/aaaa"/>
+                        </VBox>
+                    </HBox>
+
+                    <HBox spacing="14.0">
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Costo de adquisicion S/" styleClass="campo-label"/>
+                            <TextField fx:id="txtCosto" promptText="Ej. 25000.00"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                            <Label text="Critico (detiene la produccion)" styleClass="campo-label"/>
+                            <CheckBox fx:id="chkCritico" text="Es equipo critico"/>
+                        </VBox>
+                    </HBox>
+
+                    <VBox styleClass="campo">
+                        <Label text="Observaciones" styleClass="campo-label"/>
+                        <TextArea fx:id="taObservaciones" promptText="Detalles de operacion, limites, riesgos…"
+                                  prefRowCount="3"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+                </VBox>
+            </ScrollPane>
+
+            <HBox styleClass="drawer-footer">
+                <Button text="Cancelar" onAction="#onCerrarFormulario" styleClass="button-outlined"/>
+                <Button text="Guardar" onAction="#onGuardar" styleClass="accent" defaultButton="true">
+                    <graphic><FontIcon iconLiteral="fth-check"/></graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </fx:define>
+
+    <!-- ============ Cabecera ============ -->
+    <HBox styleClass="pagina-cabecera">
+        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+            <Label text="Equipos" styleClass="pagina-titulo"/>
+            <Label text="Activos de la planta, su estado operativo y su historial de mantenimiento"
+                   styleClass="pagina-subtitulo"/>
+        </VBox>
+        <Button fx:id="btnNueva" text="Nuevo equipo" onAction="#onNueva" styleClass="accent,boton-principal">
+            <graphic><FontIcon iconLiteral="fth-plus"/></graphic>
+        </Button>
+    </HBox>
+
+    <!-- ============ Tabla ============ -->
+    <VBox styleClass="tarjeta" VBox.vgrow="ALWAYS">
+        <HBox styleClass="barra-herramientas">
+            <CustomTextField fx:id="txtBuscar" promptText="Buscar por codigo, nombre, serie o ubicacion"
+                             styleClass="buscador" prefWidth="320.0">
+                <left><FontIcon iconLiteral="fth-search"/></left>
+            </CustomTextField>
+            <ComboBox fx:id="cmbFiltroEstado" prefWidth="180.0"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnHistorial" text="Historial" onAction="#onHistorial" styleClass="button-outlined" disable="true">
+                <graphic><FontIcon iconLiteral="fth-clock"/></graphic>
+            </Button>
+            <Button fx:id="btnEditar" text="Editar" onAction="#onEditar" styleClass="button-outlined" disable="true">
+                <graphic><FontIcon iconLiteral="fth-edit-2"/></graphic>
+            </Button>
+            <Button fx:id="btnEliminar" text="Eliminar" onAction="#onEliminar" styleClass="button-outlined,danger" disable="true">
+                <graphic><FontIcon iconLiteral="fth-trash-2"/></graphic>
+            </Button>
+        </HBox>
+
+        <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colCodigo"    text="CODIGO"    prefWidth="100.0"/>
+                <TableColumn fx:id="colNombre"    text="EQUIPO"    prefWidth="280.0"/>
+                <TableColumn fx:id="colCategoria" text="CATEGORIA" prefWidth="170.0"/>
+                <TableColumn fx:id="colUbicacion" text="UBICACION" prefWidth="170.0"/>
+                <TableColumn fx:id="colEstado"    text="ESTADO"    prefWidth="160.0"/>
+                <TableColumn fx:id="colOrdenes"   text="ORDENES"   prefWidth="100.0"/>
+            </columns>
+        </TableView>
+
+        <Paginador fx:id="paginador"/>
+    </VBox>
+</VBox>

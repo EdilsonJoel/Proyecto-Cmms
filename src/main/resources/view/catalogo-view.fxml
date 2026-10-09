@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.mantenimiento.cmms.ui.Paginador?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mantenimiento.cmms.controller.CatalogoController"
+      styleClass="pagina">
+
+    <fx:define>
+        <VBox fx:id="panelFormulario" styleClass="drawer" prefWidth="470.0" maxWidth="470.0" maxHeight="Infinity">
+            <HBox styleClass="drawer-header">
+                <StackPane styleClass="drawer-icono"><FontIcon iconLiteral="fth-layers"/></StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                    <Label fx:id="lblTituloFormulario" text="Nuevo registro" styleClass="drawer-titulo"/>
+                    <Label fx:id="lblSubtituloFormulario" text="Catalogo maestro" styleClass="drawer-subtitulo"/>
+                </VBox>
+                <Button onAction="#onCerrarFormulario" styleClass="flat,button-circle">
+                    <graphic><FontIcon iconLiteral="fth-x"/></graphic>
+                </Button>
+            </HBox>
+
+            <ScrollPane fitToWidth="true" styleClass="drawer-scroll" VBox.vgrow="ALWAYS">
+                <VBox styleClass="drawer-body">
+
+                    <!-- ================= form categoria ================= -->
+                    <VBox fx:id="formCategoria" styleClass="drawer-body" spacing="0.0">
+                        <Label text="CATEGORIA DE EQUIPO" styleClass="seccion-form"/>
+                        <VBox styleClass="campo">
+                            <Label text="Nombre *" styleClass="campo-label"/>
+                            <TextField fx:id="txtCatNombre" promptText="Ej. Maquinaria rotativa"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                        <VBox styleClass="campo">
+                            <Label text="Descripcion" styleClass="campo-label"/>
+                            <TextField fx:id="txtCatDescripcion" promptText="Que agrupa esta categoria"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                        <VBox styleClass="campo">
+                            <Label text="Color (hex)" styleClass="campo-label"/>
+                            <TextField fx:id="txtCatColor" promptText="#2a78d6"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                    </VBox>
+
+                    <!-- ================= form ubicacion ================= -->
+                    <VBox fx:id="formUbicacion" styleClass="drawer-body" spacing="0.0" visible="false" managed="false">
+                        <Label text="UBICACION FISICA" styleClass="seccion-form"/>
+                        <VBox styleClass="campo">
+                            <Label text="Nombre *" styleClass="campo-label"/>
+                            <TextField fx:id="txtUbiNombre" promptText="Ej. Linea de empaque 2"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                        <VBox styleClass="campo">
+                            <Label text="Descripcion" styleClass="campo-label"/>
+                            <TextField fx:id="txtUbiDescripcion" promptText="Nave, piso, referencia…"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                    </VBox>
+
+                    <!-- ================= form proveedor ================= -->
+                    <VBox fx:id="formProveedor" styleClass="drawer-body" spacing="0.0" visible="false" managed="false">
+                        <Label text="PROVEEDOR" styleClass="seccion-form"/>
+                        <VBox styleClass="campo">
+                            <Label text="Razon social *" styleClass="campo-label"/>
+                            <TextField fx:id="txtProvNombre" promptText="Ej. Repuestos Andinos S.A.C."/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                        <HBox spacing="14.0">
+                            <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                                <Label text="RUC" styleClass="campo-label"/>
+                                <TextField fx:id="txtProvRuc" promptText="11 digitos"/>
+                                <Label styleClass="campo-error" visible="false" managed="false"/>
+                            </VBox>
+                            <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                                <Label text="Telefono" styleClass="campo-label"/>
+                                <TextField fx:id="txtProvTelefono" promptText="Ej. (01) 4567890"/>
+                            </VBox>
+                        </HBox>
+                        <VBox styleClass="campo">
+                            <Label text="Correo" styleClass="campo-label"/>
+                            <TextField fx:id="txtProvEmail" promptText="ventas@proveedor.pe"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                    </VBox>
+
+                </VBox>
+            </ScrollPane>
+
+            <HBox styleClass="drawer-footer">
+                <Button text="Cancelar" onAction="#onCerrarFormulario" styleClass="button-outlined"/>
+                <Button text="Guardar" onAction="#onGuardar" styleClass="accent" defaultButton="true">
+                    <graphic><FontIcon iconLiteral="fth-check"/></graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </fx:define>
+
+    <!-- ============ Cabecera ============ -->
+    <HBox styleClass="pagina-cabecera">
+        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+            <Label text="Catalogos" styleClass="pagina-titulo"/>
+            <Label text="Categorias de equipo, ubicaciones de planta y proveedores"
+                   styleClass="pagina-subtitulo"/>
+        </VBox>
+        <Button fx:id="btnNuevo" text="Nuevo registro" onAction="#onNuevo" styleClass="accent,boton-principal">
+            <graphic><FontIcon iconLiteral="fth-plus"/></graphic>
+        </Button>
+    </HBox>
+
+    <!-- ============ Pestañas ============ -->
+    <VBox styleClass="tarjeta" VBox.vgrow="ALWAYS">
+        <HBox styleClass="barra-herramientas">
+            <Label text="El formulario se adapta a la pestana seleccionada" styleClass="pagina-subtitulo"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnEditar" text="Editar" onAction="#onEditar" styleClass="button-outlined" disable="true">
+                <graphic><FontIcon iconLiteral="fth-edit-2"/></graphic>
+            </Button>
+            <Button fx:id="btnEliminar" text="Eliminar" onAction="#onEliminar" styleClass="button-outlined,danger" disable="true">
+                <graphic><FontIcon iconLiteral="fth-trash-2"/></graphic>
+            </Button>
+        </HBox>
+
+        <TabPane fx:id="pestanas" VBox.vgrow="ALWAYS" tabClosingPolicy="UNAVAILABLE">
+
+            <Tab fx:id="tabCategorias" text="Categorias de equipo">
+                <TableView fx:id="tablaCategorias" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colCatNombre"      text="NOMBRE"      prefWidth="260.0"/>
+                        <TableColumn fx:id="colCatDescripcion" text="DESCRIPCION" prefWidth="480.0"/>
+                        <TableColumn fx:id="colCatColor"       text="COLOR"       prefWidth="140.0"/>
+                    </columns>
+                </TableView>
+            </Tab>
+
+            <Tab fx:id="tabUbicaciones" text="Ubicaciones">
+                <TableView fx:id="tablaUbicaciones" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colUbiNombre"      text="NOMBRE"      prefWidth="300.0"/>
+                        <TableColumn fx:id="colUbiDescripcion" text="DESCRIPCION" prefWidth="580.0"/>
+                    </columns>
+                </TableView>
+            </Tab>
+
+            <Tab fx:id="tabProveedores" text="Proveedores">
+                <TableView fx:id="tablaProveedores" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colProvNombre"   text="RAZON SOCIAL" prefWidth="320.0"/>
+                        <TableColumn fx:id="colProvRuc"      text="RUC"          prefWidth="150.0"/>
+                        <TableColumn fx:id="colProvTelefono" text="TELEFONO"     prefWidth="180.0"/>
+                        <TableColumn fx:id="colProvEmail"    text="CORREO"       prefWidth="280.0"/>
+                    </columns>
+                </TableView>
+            </Tab>
+
+        </TabPane>
+    </VBox>
+</VBox>

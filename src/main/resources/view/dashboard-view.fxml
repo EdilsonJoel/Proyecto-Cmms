@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.mantenimiento.cmms.controller.DashboardController"
+            fitToWidth="true" styleClass="pagina-scroll">
+
+    <VBox styleClass="pagina" spacing="16.0">
+
+        <!-- ============ Cabecera con foto ============ -->
+        <StackPane styleClass="hero">
+            <HBox styleClass="hero-capota,pagina-cabecera">
+                <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+                    <Label text="Dashboard" styleClass="pagina-titulo"/>
+                    <Label text="Disponibilidad, costos y alertas del mantenimiento" styleClass="pagina-subtitulo"/>
+                </VBox>
+                <Button fx:id="btnPreventivo" text="Generar preventivos" onAction="#onGenerarPreventivos"
+                        styleClass="accent" visible="false" managed="false">
+                    <graphic><FontIcon iconLiteral="fth-refresh-cw"/></graphic>
+                </Button>
+                <Button text="Actualizar" onAction="#onRefrescar" styleClass="hero-boton">
+                    <graphic><FontIcon iconLiteral="fth-activity"/></graphic>
+                </Button>
+            </HBox>
+        </StackPane>
+
+        <!-- ============ KPIs ============ -->
+        <GridPane hgap="16.0">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="25.0"/>
+                <ColumnConstraints percentWidth="25.0"/>
+                <ColumnConstraints percentWidth="25.0"/>
+                <ColumnConstraints percentWidth="25.0"/>
+            </columnConstraints>
+
+            <VBox styleClass="tarjeta,kpi,kpi-destacado" GridPane.columnIndex="0">
+                <HBox styleClass="kpi-cabecera">
+                    <Label text="Disponibilidad" styleClass="kpi-titulo" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                    <StackPane styleClass="kpi-icono"><FontIcon iconLiteral="fth-activity"/></StackPane>
+                </HBox>
+                <Label fx:id="lblKpiDisponibilidad" text="—" styleClass="kpi-valor"/>
+                <Label fx:id="lblKpiDisponibilidadDetalle" text=" " styleClass="kpi-detalle"/>
+            </VBox>
+
+            <VBox styleClass="tarjeta,kpi" GridPane.columnIndex="1">
+                <HBox styleClass="kpi-cabecera">
+                    <Label text="Ordenes activas" styleClass="kpi-titulo" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                    <StackPane styleClass="kpi-icono"><FontIcon iconLiteral="fth-clipboard"/></StackPane>
+                </HBox>
+                <Label fx:id="lblKpiOrdenes" text="0" styleClass="kpi-valor"/>
+                <Label fx:id="lblKpiOrdenesDetalle" text=" " styleClass="kpi-detalle"/>
+            </VBox>
+
+            <VBox styleClass="tarjeta,kpi" GridPane.columnIndex="2">
+                <HBox styleClass="kpi-cabecera">
+                    <Label text="Costo del mes" styleClass="kpi-titulo" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                    <StackPane styleClass="kpi-icono"><FontIcon iconLiteral="fth-dollar-sign"/></StackPane>
+                </HBox>
+                <Label fx:id="lblKpiCosto" text="S/ 0.00" styleClass="kpi-valor"/>
+                <Label fx:id="lblKpiCostoDetalle" text=" " styleClass="kpi-detalle"/>
+            </VBox>
+
+            <VBox styleClass="tarjeta,kpi" GridPane.columnIndex="3">
+                <HBox styleClass="kpi-cabecera">
+                    <Label text="MTTR (tiempo medio)" styleClass="kpi-titulo" HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+                    <StackPane styleClass="kpi-icono"><FontIcon iconLiteral="fth-clock"/></StackPane>
+                </HBox>
+                <Label fx:id="lblKpiMttr" text="0 h" styleClass="kpi-valor"/>
+                <Label fx:id="lblKpiMttrDetalle" text=" " styleClass="kpi-detalle"/>
+            </VBox>
+        </GridPane>
+
+        <!-- ============ Leyenda: dato consultado vs valor calculado ============ -->
+        <HBox styleClass="leyenda-datos" alignment="CENTER_LEFT" spacing="8.0">
+            <Label text="BD" styleClass="chip,info"/>
+            <Label text="dato almacenado" styleClass="kpi-fuente"/>
+            <Label text="calc" styleClass="chip,neutro"/>
+            <Label text="valor derivado (no es un dato guardado)" styleClass="kpi-fuente"/>
+            <Label text="confianza" styleClass="chip,exito"/>
+            <Label text="n = muestras del calculo: alta n&gt;=30 · media n&gt;=10 · baja n&lt;10"
+                   styleClass="kpi-fuente"/>
+        </HBox>
+
+        <!-- ============ Acciones sugeridas: el agente propone, tu decides ====== -->
+        <VBox styleClass="tarjeta,sugerencias" spacing="10.0">
+            <HBox alignment="CENTER_LEFT" spacing="9.0">
+                <FontIcon iconLiteral="fth-zap"/>
+                <Label text="Acciones sugeridas" styleClass="grafico-titulo"/>
+                <Label text="el agente propone con fuente y criterio · tu aplicas o descartas"
+                       styleClass="grafico-subtitulo"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnRestaurar" text="Restaurar descartadas"
+                        onAction="#onRestaurarSugerencias" styleClass="button-outlined"
+                        visible="false" managed="false">
+                    <graphic><FontIcon iconLiteral="fth-refresh-cw"/></graphic>
+                </Button>
+            </HBox>
+            <VBox fx:id="listaSugerencias" spacing="8.0"/>
+        </VBox>
+
+        <!-- ============ Costos y estados ============ -->
+        <GridPane hgap="16.0" vgap="16.0">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="62.0"/>
+                <ColumnConstraints percentWidth="38.0"/>
+            </columnConstraints>
+
+            <VBox styleClass="tarjeta,grafico" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                <Label text="Costo de mantenimiento" styleClass="grafico-titulo"/>
+                <Label text="Costo total de ordenes por mes (ultimos 6 meses)" styleClass="grafico-subtitulo"/>
+                <AreaChart fx:id="graficoCostos" legendVisible="false" animated="false"
+                           createSymbols="true" prefHeight="270.0" VBox.vgrow="ALWAYS" styleClass="grafico-area">
+                    <xAxis><CategoryAxis fx:id="ejeMeses" side="BOTTOM" tickMarkVisible="false"/></xAxis>
+                    <yAxis><NumberAxis fx:id="ejeCosto" side="LEFT" tickMarkVisible="false"
+                                       label="S/"/></yAxis>
+                </AreaChart>
+            </VBox>
+
+            <VBox styleClass="tarjeta,grafico,dona" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                <Label text="Ordenes por estado" styleClass="grafico-titulo"/>
+                <Label text="Distribucion de todas las ordenes registradas" styleClass="grafico-subtitulo"/>
+                <PieChart fx:id="graficoEstados" legendVisible="false" labelsVisible="true"
+                          prefHeight="270.0" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </GridPane>
+
+        <!-- ============ Tipos, ranking y alertas ============ -->
+        <GridPane hgap="16.0" vgap="16.0">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="40.0"/>
+                <ColumnConstraints percentWidth="30.0"/>
+                <ColumnConstraints percentWidth="30.0"/>
+            </columnConstraints>
+
+            <VBox styleClass="tarjeta,grafico" GridPane.rowIndex="0" GridPane.columnIndex="0" prefHeight="300.0">
+                <Label text="Ordenes por tipo" styleClass="grafico-titulo"/>
+                <Label text="Preventivo frente a correctivo y predictivo" styleClass="grafico-subtitulo"/>
+                <BarChart fx:id="graficoTipos" legendVisible="false" animated="false"
+                          barGap="40.0" categoryGap="40.0" prefHeight="230.0" VBox.vgrow="ALWAYS">
+                    <xAxis><CategoryAxis fx:id="ejeTipos" side="BOTTOM" tickMarkVisible="false"/></xAxis>
+                    <yAxis><NumberAxis fx:id="ejeConteo" side="LEFT" tickMarkVisible="false"
+                                       label="Ordenes"/></yAxis>
+                </BarChart>
+            </VBox>
+
+            <VBox styleClass="tarjeta,grafico" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                <Label text="Equipos mas costosos" styleClass="grafico-titulo"/>
+                <Label text="Top 5 por costo acumulado de ordenes completadas" styleClass="grafico-subtitulo"/>
+                <VBox fx:id="listaTopCostos" styleClass="ranking" spacing="6.0" VBox.vgrow="ALWAYS"/>
+            </VBox>
+
+            <VBox styleClass="tarjeta,grafico" GridPane.rowIndex="0" GridPane.columnIndex="2">
+                <Label text="Alertas" styleClass="grafico-titulo"/>
+                <Label text="Vencimientos, preventivos y stock" styleClass="grafico-subtitulo"/>
+                <VBox fx:id="listaAlertas" styleClass="lista-ventas" spacing="2.0" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </GridPane>
+
+        <!-- ============ Ultimas ordenes y carga ============ -->
+        <GridPane hgap="16.0" vgap="16.0">
+            <columnConstraints>
+                <ColumnConstraints percentWidth="62.0"/>
+                <ColumnConstraints percentWidth="38.0"/>
+            </columnConstraints>
+
+            <VBox styleClass="tarjeta,grafico" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                <Label text="Ultimas ordenes" styleClass="grafico-titulo"/>
+                <Label text="Las cinco intervenciones registradas mas recientes" styleClass="grafico-subtitulo"/>
+                <VBox fx:id="listaUltimas" styleClass="lista-ventas" spacing="2.0" VBox.vgrow="ALWAYS"/>
+            </VBox>
+
+            <VBox styleClass="tarjeta,grafico" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                <Label text="Carga por tecnico" styleClass="grafico-titulo"/>
+                <Label text="Ordenes activas y cerradas de cada tecnico" styleClass="grafico-subtitulo"/>
+                <VBox fx:id="listaCarga" styleClass="lista-ventas" spacing="2.0" VBox.vgrow="ALWAYS"/>
+            </VBox>
+        </GridPane>
+    </VBox>
+</ScrollPane>

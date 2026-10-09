@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import atlantafx.base.controls.CustomTextField?>
+<?import com.mantenimiento.cmms.ui.Paginador?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mantenimiento.cmms.controller.UsuarioController"
+      styleClass="pagina">
+
+    <fx:define>
+        <VBox fx:id="panelFormulario" styleClass="drawer" prefWidth="470.0" maxWidth="470.0" maxHeight="Infinity">
+            <HBox styleClass="drawer-header">
+                <StackPane styleClass="drawer-icono"><FontIcon iconLiteral="fth-lock"/></StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                    <Label fx:id="lblTituloFormulario" text="Nueva cuenta" styleClass="drawer-titulo"/>
+                    <Label fx:id="lblSubtituloFormulario" text="Acceso al sistema" styleClass="drawer-subtitulo"/>
+                </VBox>
+                <Button onAction="#onCerrarFormulario" styleClass="flat,button-circle">
+                    <graphic><FontIcon iconLiteral="fth-x"/></graphic>
+                </Button>
+            </HBox>
+
+            <ScrollPane fitToWidth="true" styleClass="drawer-scroll" VBox.vgrow="ALWAYS">
+                <VBox styleClass="drawer-body">
+                    <Label text="CUENTA DE ACCESO" styleClass="seccion-form"/>
+
+                    <VBox styleClass="campo">
+                        <Label text="Usuario *" styleClass="campo-label"/>
+                        <TextField fx:id="txtUsuario" promptText="Ej. admin"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+
+                    <VBox styleClass="campo">
+                        <Label text="Nombre completo *" styleClass="campo-label"/>
+                        <TextField fx:id="txtNombre" promptText="Quien usa esta cuenta"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+
+                    <VBox styleClass="campo">
+                        <Label text="Correo" styleClass="campo-label"/>
+                        <TextField fx:id="txtEmail" promptText="correo@empresa.pe"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+
+                    <Label text="PERMISOS" styleClass="seccion-form"/>
+
+                    <VBox styleClass="campo">
+                        <Label text="Rol *" styleClass="campo-label"/>
+                        <ComboBox fx:id="cmbRol" promptText="Selecciona el rol"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+
+                    <Label text="ADMIN todo · SUPERVISOR todo salvo usuarios · TECNICO solo sus ordenes"
+                           styleClass="campo-ayuda"/>
+
+                    <VBox styleClass="campo">
+                        <Label text="Contrasena" styleClass="campo-label"/>
+                        <PasswordField fx:id="pwdContrasena" promptText="Minimo 6 caracteres"/>
+                        <Label fx:id="lblAyudaContrasena" text="Minimo 6 caracteres. Se guarda cifrada (SHA-256 con sal)."
+                               styleClass="campo-ayuda"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+
+                    <VBox styleClass="campo" alignment="CENTER_LEFT">
+                        <Label text="Estado" styleClass="campo-label"/>
+                        <CheckBox fx:id="chkActivo" text="Cuenta activa"/>
+                    </VBox>
+                </VBox>
+            </ScrollPane>
+
+            <HBox styleClass="drawer-footer">
+                <Button text="Cancelar" onAction="#onCerrarFormulario" styleClass="button-outlined"/>
+                <Button text="Guardar" onAction="#onGuardar" styleClass="accent" defaultButton="true">
+                    <graphic><FontIcon iconLiteral="fth-check"/></graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </fx:define>
+
+    <!-- ============ Cabecera ============ -->
+    <HBox styleClass="pagina-cabecera">
+        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+            <Label text="Usuarios" styleClass="pagina-titulo"/>
+            <Label text="Cuentas de acceso, roles y permisos. Solo visible para administradores."
+                   styleClass="pagina-subtitulo"/>
+        </VBox>
+        <Button fx:id="btnNuevo" text="Nueva cuenta" onAction="#onNuevo" styleClass="accent,boton-principal">
+            <graphic><FontIcon iconLiteral="fth-plus"/></graphic>
+        </Button>
+    </HBox>
+
+    <!-- ============ Tabla ============ -->
+    <VBox styleClass="tarjeta" VBox.vgrow="ALWAYS">
+        <HBox styleClass="barra-herramientas">
+            <CustomTextField fx:id="txtBuscar" promptText="Buscar por usuario, nombre o rol"
+                             styleClass="buscador" prefWidth="320.0">
+                <left><FontIcon iconLiteral="fth-search"/></left>
+            </CustomTextField>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnEstado" text="Activar" onAction="#onCambiarEstado" styleClass="button-outlined" disable="true">
+                <graphic><FontIcon iconLiteral="fth-user-check"/></graphic>
+            </Button>
+            <Button fx:id="btnEditar" text="Editar" onAction="#onEditar" styleClass="button-outlined" disable="true">
+                <graphic><FontIcon iconLiteral="fth-edit-2"/></graphic>
+            </Button>
+            <Button fx:id="btnEliminar" text="Eliminar" onAction="#onEliminar" styleClass="button-outlined,danger" disable="true">
+                <graphic><FontIcon iconLiteral="fth-trash-2"/></graphic>
+            </Button>
+        </HBox>
+
+        <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colUsuario"      text="USUARIO"      prefWidth="170.0"/>
+                <TableColumn fx:id="colNombre"       text="NOMBRE"       prefWidth="260.0"/>
+                <TableColumn fx:id="colEmail"        text="CORREO"       prefWidth="260.0"/>
+                <TableColumn fx:id="colRol"          text="ROL"          prefWidth="150.0"/>
+                <TableColumn fx:id="colUltimoAcceso" text="ULTIMO ACCESO" prefWidth="170.0"/>
+                <TableColumn fx:id="colEstado"       text="ESTADO"       prefWidth="120.0"/>
+            </columns>
+        </TableView>
+
+        <Paginador fx:id="paginador"/>
+    </VBox>
+</VBox>
