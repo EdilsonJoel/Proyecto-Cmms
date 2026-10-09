@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import atlantafx.base.controls.CustomTextField?>
+<?import com.mantenimiento.cmms.ui.Paginador?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mantenimiento.cmms.controller.TecnicoController"
+      styleClass="pagina">
+
+    <fx:define>
+        <VBox fx:id="panelFormulario" styleClass="drawer" prefWidth="470.0" maxWidth="470.0" maxHeight="Infinity">
+            <HBox styleClass="drawer-header">
+                <StackPane styleClass="drawer-icono"><FontIcon iconLiteral="fth-user-check"/></StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                    <Label fx:id="lblTituloFormulario" text="Nuevo tecnico" styleClass="drawer-titulo"/>
+                    <Label fx:id="lblSubtituloFormulario" text="Personal de mantenimiento" styleClass="drawer-subtitulo"/>
+                </VBox>
+                <Button onAction="#onCerrarFormulario" styleClass="flat,button-circle">
+                    <graphic><FontIcon iconLiteral="fth-x"/></graphic>
+                </Button>
+            </HBox>
+
+            <ScrollPane fitToWidth="true" styleClass="drawer-scroll" VBox.vgrow="ALWAYS">
+                <VBox styleClass="drawer-body">
+                    <Label text="DATOS PERSONALES" styleClass="seccion-form"/>
+
+                    <HBox spacing="14.0">
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="DNI *" styleClass="campo-label"/>
+                            <TextField fx:id="txtDni" promptText="8 digitos"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS" prefWidth="140.0">
+                            <Label text="Estado" styleClass="campo-label"/>
+                            <CheckBox fx:id="chkActivo" text="Activo" styleClass="campo-label"/>
+                        </VBox>
+                    </HBox>
+
+                    <VBox styleClass="campo">
+                        <Label text="Nombre completo *" styleClass="campo-label"/>
+                        <TextField fx:id="txtNombre" promptText="Ej. Carlos Rodriguez"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+
+                    <VBox styleClass="campo">
+                        <Label text="Especialidad *" styleClass="campo-label"/>
+                        <TextField fx:id="txtEspecialidad" promptText="Ej. Mecanica, electricidad, calderas"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+
+                    <Label text="CONTACTO" styleClass="seccion-form"/>
+
+                    <HBox spacing="14.0">
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Telefono" styleClass="campo-label"/>
+                            <TextField fx:id="txtTelefono" promptText="Ej. 999888777"/>
+                        </VBox>
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Correo" styleClass="campo-label"/>
+                            <TextField fx:id="txtEmail" promptText="correo@planta.pe"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                    </HBox>
+
+                    <Label text="CUENTA DE ACCESO" styleClass="seccion-form"/>
+                    <Label text="Si vinculas una cuenta, ese usuario iniciara sesion y vera solo sus ordenes."
+                           styleClass="campo-ayuda"/>
+
+                    <VBox styleClass="campo">
+                        <Label text="Usuario vinculado" styleClass="campo-label"/>
+                        <ComboBox fx:id="cmbUsuario" promptText="Sin cuenta de acceso"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+
+                    <Label fx:id="lblCarga" styleClass="campo-ayuda" visible="false" managed="false"/>
+                </VBox>
+            </ScrollPane>
+
+            <HBox styleClass="drawer-footer">
+                <Button text="Cancelar" onAction="#onCerrarFormulario" styleClass="button-outlined"/>
+                <Button text="Guardar" onAction="#onGuardar" styleClass="accent" defaultButton="true">
+                    <graphic><FontIcon iconLiteral="fth-check"/></graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </fx:define>
+
+    <!-- ============ Cabecera ============ -->
+    <HBox styleClass="pagina-cabecera">
+        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+            <Label text="Tecnicos" styleClass="pagina-titulo"/>
+            <Label text="Personal de mantenimiento, especialidades, carga y vinculo con cuentas de acceso"
+                   styleClass="pagina-subtitulo"/>
+        </VBox>
+        <Button fx:id="btnNuevo" text="Nuevo tecnico" onAction="#onNuevo" styleClass="accent,boton-principal">
+            <graphic><FontIcon iconLiteral="fth-plus"/></graphic>
+        </Button>
+    </HBox>
+
+    <!-- ============ Tabla ============ -->
+    <VBox styleClass="tarjeta" VBox.vgrow="ALWAYS">
+        <HBox styleClass="barra-herramientas">
+            <CustomTextField fx:id="txtBuscar" promptText="Buscar por DNI, nombre o especialidad"
+                             styleClass="buscador" prefWidth="320.0">
+                <left><FontIcon iconLiteral="fth-search"/></left>
+            </CustomTextField>
+            <CheckBox fx:id="chkSoloActivos" text="Solo activos"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnEditar" text="Editar" onAction="#onEditar" styleClass="button-outlined" disable="true">
+                <graphic><FontIcon iconLiteral="fth-edit-2"/></graphic>
+            </Button>
+            <Button fx:id="btnEliminar" text="Eliminar" onAction="#onEliminar" styleClass="button-outlined,danger" disable="true">
+                <graphic><FontIcon iconLiteral="fth-trash-2"/></graphic>
+            </Button>
+        </HBox>
+
+        <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colDni"          text="DNI"          prefWidth="110.0"/>
+                <TableColumn fx:id="colNombre"       text="NOMBRE"       prefWidth="260.0"/>
+                <TableColumn fx:id="colEspecialidad" text="ESPECIALIDAD" prefWidth="200.0"/>
+                <TableColumn fx:id="colContacto"     text="CONTACTO"     prefWidth="260.0"/>
+                <TableColumn fx:id="colCuenta"       text="CUENTA"       prefWidth="200.0"/>
+                <TableColumn fx:id="colEstado"       text="ESTADO"       prefWidth="120.0"/>
+            </columns>
+        </TableView>
+
+        <Paginador fx:id="paginador"/>
+    </VBox>
+</VBox>

@@ -1,0 +1,5384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.mantenimiento.cmms.service.OrdenFlujoTest" time="0.658" tests="6" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="24"/>
+    <property name="javafx.runtime.version" value="21.0.4+1"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\joell\Downloads\proyecto -sistetms\cmms-mantenimiento\target\test-classes;C:\Users\joell\Downloads\proyecto -sistetms\cmms-mantenimiento\target\classes;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.3.4\spring-boot-starter-data-jpa-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.3.4\spring-boot-starter-jdbc-3.3.4.jar;C:\Users\joell\.m2\repository\com\zaxxer\HikariCP\5.1.0\HikariCP-5.1.0.jar;C:\Users\joell\.m2\repository\org\springframework\spring-jdbc\6.1.13\spring-jdbc-6.1.13.jar;C:\Users\joell\.m2\repository\org\hibernate\orm\hibernate-core\6.5.3.Final\hibernate-core-6.5.3.Final.jar;C:\Users\joell\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\joell\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\joell\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\joell\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\joell\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\joell\.m2\repository\net\bytebuddy\byte-buddy\1.14.19\byte-buddy-1.14.19.jar;C:\Users\joell\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\joell\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\joell\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\joell\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\joell\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\joell\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\joell\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\joell\.m2\repository\org\springframework\data\spring-data-jpa\3.3.4\spring-data-jpa-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\data\spring-data-commons\3.3.4\spring-data-commons-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\spring-orm\6.1.13\spring-orm-6.1.13.jar;C:\Users\joell\.m2\repository\org\springframework\spring-context\6.1.13\spring-context-6.1.13.jar;C:\Users\joell\.m2\repository\org\springframework\spring-expression\6.1.13\spring-expression-6.1.13.jar;C:\Users\joell\.m2\repository\io\micrometer\micrometer-observation\1.13.4\micrometer-observation-1.13.4.jar;C:\Users\joell\.m2\repository\io\micrometer\micrometer-commons\1.13.4\micrometer-commons-1.13.4.jar;C:\Users\joell\.m2\repository\org\springframework\spring-tx\6.1.13\spring-tx-6.1.13.jar;C:\Users\joell\.m2\repository\org\springframework\spring-beans\6.1.13\spring-beans-6.1.13.jar;C:\Users\joell\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\joell\.m2\repository\org\springframework\spring-aspects\6.1.13\spring-aspects-6.1.13.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.3.4\spring-boot-starter-validation-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-starter\3.3.4\spring-boot-starter-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot\3.3.4\spring-boot-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.3.4\spring-boot-autoconfigure-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.3.4\spring-boot-starter-logging-3.3.4.jar;C:\Users\joell\.m2\repository\ch\qos\logback\logback-classic\1.5.8\logback-classic-1.5.8.jar;C:\Users\joell\.m2\repository\ch\qos\logback\logback-core\1.5.8\logback-core-1.5.8.jar;C:\Users\joell\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.23.1\log4j-to-slf4j-2.23.1.jar;C:\Users\joell\.m2\repository\org\slf4j\jul-to-slf4j\2.0.16\jul-to-slf4j-2.0.16.jar;C:\Users\joell\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\joell\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.30\tomcat-embed-el-10.1.30.jar;C:\Users\joell\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;C:\Users\joell\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.3.4\spring-boot-starter-aop-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\spring-aop\6.1.13\spring-aop-6.1.13.jar;C:\Users\joell\.m2\repository\org\aspectj\aspectjweaver\1.9.22.1\aspectjweaver-1.9.22.1.jar;C:\Users\joell\.m2\repository\org\xerial\sqlite-jdbc\3.45.3.0\sqlite-jdbc-3.45.3.0.jar;C:\Users\joell\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\joell\.m2\repository\org\hibernate\orm\hibernate-community-dialects\6.5.3.Final\hibernate-community-dialects-6.5.3.Final.jar;C:\Users\joell\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\joell\.m2\repository\org\projectlombok\lombok\1.18.42\lombok-1.18.42.jar;C:\Users\joell\.m2\repository\org\openjfx\javafx-controls\21.0.4\javafx-controls-21.0.4.jar;C:\Users\joell\.m2\repository\org\openjfx\javafx-controls\21.0.4\javafx-controls-21.0.4-win.jar;C:\Users\joell\.m2\repository\org\openjfx\javafx-graphics\21.0.4\javafx-graphics-21.0.4.jar;C:\Users\joell\.m2\repository\org\openjfx\javafx-graphics\21.0.4\javafx-graphics-21.0.4-win.jar;C:\Users\joell\.m2\repository\org\openjfx\javafx-base\21.0.4\javafx-base-21.0.4.jar;C:\Users\joell\.m2\repository\org\openjfx\javafx-base\21.0.4\javafx-base-21.0.4-win.jar;C:\Users\joell\.m2\repository\org\openjfx\javafx-fxml\21.0.4\javafx-fxml-21.0.4.jar;C:\Users\joell\.m2\repository\org\openjfx\javafx-fxml\21.0.4\javafx-fxml-21.0.4-win.jar;C:\Users\joell\.m2\repository\io\github\mkpaz\atlantafx-base\2.0.1\atlantafx-base-2.0.1.jar;C:\Users\joell\.m2\repository\org\kordamp\ikonli\ikonli-javafx\12.3.1\ikonli-javafx-12.3.1.jar;C:\Users\joell\.m2\repository\org\kordamp\ikonli\ikonli-core\12.3.1\ikonli-core-12.3.1.jar;C:\Users\joell\.m2\repository\org\kordamp\ikonli\ikonli-feather-pack\12.3.1\ikonli-feather-pack-12.3.1.jar;C:\Users\joell\.m2\repository\com\github\librepdf\openpdf\1.3.43\openpdf-1.3.43.jar;C:\Users\joell\.m2\repository\org\apache\poi\poi-ooxml\5.2.5\poi-ooxml-5.2.5.jar;C:\Users\joell\.m2\repository\org\apache\poi\poi\5.2.5\poi-5.2.5.jar;C:\Users\joell\.m2\repository\commons-codec\commons-codec\1.16.1\commons-codec-1.16.1.jar;C:\Users\joell\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\joell\.m2\repository\com\zaxxer\SparseBitSet\1.3\SparseBitSet-1.3.jar;C:\Users\joell\.m2\repository\org\apache\poi\poi-ooxml-lite\5.2.5\poi-ooxml-lite-5.2.5.jar;C:\Users\joell\.m2\repository\org\apache\xmlbeans\xmlbeans\5.2.0\xmlbeans-5.2.0.jar;C:\Users\joell\.m2\repository\org\apache\commons\commons-compress\1.25.0\commons-compress-1.25.0.jar;C:\Users\joell\.m2\repository\commons-io\commons-io\2.15.0\commons-io-2.15.0.jar;C:\Users\joell\.m2\repository\com\github\virtuald\curvesapi\1.08\curvesapi-1.08.jar;C:\Users\joell\.m2\repository\org\apache\logging\log4j\log4j-api\2.23.1\log4j-api-2.23.1.jar;C:\Users\joell\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.3.4\spring-boot-starter-test-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-test\3.3.4\spring-boot-test-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.3.4\spring-boot-test-autoconfigure-3.3.4.jar;C:\Users\joell\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\joell\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\joell\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\joell\.m2\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;C:\Users\joell\.m2\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;C:\Users\joell\.m2\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;C:\Users\joell\.m2\repository\org\assertj\assertj-core\3.25.3\assertj-core-3.25.3.jar;C:\Users\joell\.m2\repository\org\awaitility\awaitility\4.2.2\awaitility-4.2.2.jar;C:\Users\joell\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\joell\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.3\junit-jupiter-5.10.3.jar;C:\Users\joell\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.3\junit-jupiter-api-5.10.3.jar;C:\Users\joell\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\joell\.m2\repository\org\junit\platform\junit-platform-commons\1.10.3\junit-platform-commons-1.10.3.jar;C:\Users\joell\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\joell\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.3\junit-jupiter-params-5.10.3.jar;C:\Users\joell\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.3\junit-jupiter-engine-5.10.3.jar;C:\Users\joell\.m2\repository\org\junit\platform\junit-platform-engine\1.10.3\junit-platform-engine-1.10.3.jar;C:\Users\joell\.m2\repository\org\mockito\mockito-core\5.11.0\mockito-core-5.11.0.jar;C:\Users\joell\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.19\byte-buddy-agent-1.14.19.jar;C:\Users\joell\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\joell\.m2\repository\org\mockito\mockito-junit-jupiter\5.11.0\mockito-junit-jupiter-5.11.0.jar;C:\Users\joell\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;C:\Users\joell\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\joell\.m2\repository\org\springframework\spring-core\6.1.13\spring-core-6.1.13.jar;C:\Users\joell\.m2\repository\org\springframework\spring-jcl\6.1.13\spring-jcl-6.1.13.jar;C:\Users\joell\.m2\repository\org\springframework\spring-test\6.1.13\spring-test-6.1.13.jar;C:\Users\joell\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="America/Lima"/>
+    <property name="org.jboss.logging.provider" value="slf4j"/>
+    <property name="javafx.version" value="21.0.4"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="24"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="PE"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-24\bin"/>
+    <property name="sun.java.command" value="C:\Users\joell\AppData\Local\Temp\surefire69090137089698552\surefirebooter-20261008205856367_3.jar C:\Users\joell\AppData\Local\Temp\surefire69090137089698552 2026-10-08T20-58-56_213-jvmRun1 surefire-20261008205856367_1tmp surefire_0-20261008205856367_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\joell\Downloads\proyecto -sistetms\cmms-mantenimiento\target\test-classes;C:\Users\joell\Downloads\proyecto -sistetms\cmms-mantenimiento\target\classes;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.3.4\spring-boot-starter-data-jpa-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.3.4\spring-boot-starter-jdbc-3.3.4.jar;C:\Users\joell\.m2\repository\com\zaxxer\HikariCP\5.1.0\HikariCP-5.1.0.jar;C:\Users\joell\.m2\repository\org\springframework\spring-jdbc\6.1.13\spring-jdbc-6.1.13.jar;C:\Users\joell\.m2\repository\org\hibernate\orm\hibernate-core\6.5.3.Final\hibernate-core-6.5.3.Final.jar;C:\Users\joell\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\joell\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\joell\.m2\repository\org\hibernate\common\hibernate-commons-annotations\6.0.6.Final\hibernate-commons-annotations-6.0.6.Final.jar;C:\Users\joell\.m2\repository\io\smallrye\jandex\3.1.2\jandex-3.1.2.jar;C:\Users\joell\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\joell\.m2\repository\net\bytebuddy\byte-buddy\1.14.19\byte-buddy-1.14.19.jar;C:\Users\joell\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\joell\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\joell\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\joell\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\joell\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\joell\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\joell\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\joell\.m2\repository\org\springframework\data\spring-data-jpa\3.3.4\spring-data-jpa-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\data\spring-data-commons\3.3.4\spring-data-commons-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\spring-orm\6.1.13\spring-orm-6.1.13.jar;C:\Users\joell\.m2\repository\org\springframework\spring-context\6.1.13\spring-context-6.1.13.jar;C:\Users\joell\.m2\repository\org\springframework\spring-expression\6.1.13\spring-expression-6.1.13.jar;C:\Users\joell\.m2\repository\io\micrometer\micrometer-observation\1.13.4\micrometer-observation-1.13.4.jar;C:\Users\joell\.m2\repository\io\micrometer\micrometer-commons\1.13.4\micrometer-commons-1.13.4.jar;C:\Users\joell\.m2\repository\org\springframework\spring-tx\6.1.13\spring-tx-6.1.13.jar;C:\Users\joell\.m2\repository\org\springframework\spring-beans\6.1.13\spring-beans-6.1.13.jar;C:\Users\joell\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\joell\.m2\repository\org\springframework\spring-aspects\6.1.13\spring-aspects-6.1.13.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.3.4\spring-boot-starter-validation-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-starter\3.3.4\spring-boot-starter-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot\3.3.4\spring-boot-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.3.4\spring-boot-autoconfigure-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.3.4\spring-boot-starter-logging-3.3.4.jar;C:\Users\joell\.m2\repository\ch\qos\logback\logback-classic\1.5.8\logback-classic-1.5.8.jar;C:\Users\joell\.m2\repository\ch\qos\logback\logback-core\1.5.8\logback-core-1.5.8.jar;C:\Users\joell\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.23.1\log4j-to-slf4j-2.23.1.jar;C:\Users\joell\.m2\repository\org\slf4j\jul-to-slf4j\2.0.16\jul-to-slf4j-2.0.16.jar;C:\Users\joell\.m2\repository\org\yaml\snakeyaml\2.2\snakeyaml-2.2.jar;C:\Users\joell\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.30\tomcat-embed-el-10.1.30.jar;C:\Users\joell\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.1.Final\hibernate-validator-8.0.1.Final.jar;C:\Users\joell\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-starter-aop\3.3.4\spring-boot-starter-aop-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\spring-aop\6.1.13\spring-aop-6.1.13.jar;C:\Users\joell\.m2\repository\org\aspectj\aspectjweaver\1.9.22.1\aspectjweaver-1.9.22.1.jar;C:\Users\joell\.m2\repository\org\xerial\sqlite-jdbc\3.45.3.0\sqlite-jdbc-3.45.3.0.jar;C:\Users\joell\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\joell\.m2\repository\org\hibernate\orm\hibernate-community-dialects\6.5.3.Final\hibernate-community-dialects-6.5.3.Final.jar;C:\Users\joell\.m2\repository\org\jboss\logging\jboss-logging\3.5.3.Final\jboss-logging-3.5.3.Final.jar;C:\Users\joell\.m2\repository\org\projectlombok\lombok\1.18.42\lombok-1.18.42.jar;C:\Users\joell\.m2\repository\org\openjfx\javafx-controls\21.0.4\javafx-controls-21.0.4.jar;C:\Users\joell\.m2\repository\org\openjfx\javafx-controls\21.0.4\javafx-controls-21.0.4-win.jar;C:\Users\joell\.m2\repository\org\openjfx\javafx-graphics\21.0.4\javafx-graphics-21.0.4.jar;C:\Users\joell\.m2\repository\org\openjfx\javafx-graphics\21.0.4\javafx-graphics-21.0.4-win.jar;C:\Users\joell\.m2\repository\org\openjfx\javafx-base\21.0.4\javafx-base-21.0.4.jar;C:\Users\joell\.m2\repository\org\openjfx\javafx-base\21.0.4\javafx-base-21.0.4-win.jar;C:\Users\joell\.m2\repository\org\openjfx\javafx-fxml\21.0.4\javafx-fxml-21.0.4.jar;C:\Users\joell\.m2\repository\org\openjfx\javafx-fxml\21.0.4\javafx-fxml-21.0.4-win.jar;C:\Users\joell\.m2\repository\io\github\mkpaz\atlantafx-base\2.0.1\atlantafx-base-2.0.1.jar;C:\Users\joell\.m2\repository\org\kordamp\ikonli\ikonli-javafx\12.3.1\ikonli-javafx-12.3.1.jar;C:\Users\joell\.m2\repository\org\kordamp\ikonli\ikonli-core\12.3.1\ikonli-core-12.3.1.jar;C:\Users\joell\.m2\repository\org\kordamp\ikonli\ikonli-feather-pack\12.3.1\ikonli-feather-pack-12.3.1.jar;C:\Users\joell\.m2\repository\com\github\librepdf\openpdf\1.3.43\openpdf-1.3.43.jar;C:\Users\joell\.m2\repository\org\apache\poi\poi-ooxml\5.2.5\poi-ooxml-5.2.5.jar;C:\Users\joell\.m2\repository\org\apache\poi\poi\5.2.5\poi-5.2.5.jar;C:\Users\joell\.m2\repository\commons-codec\commons-codec\1.16.1\commons-codec-1.16.1.jar;C:\Users\joell\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\joell\.m2\repository\com\zaxxer\SparseBitSet\1.3\SparseBitSet-1.3.jar;C:\Users\joell\.m2\repository\org\apache\poi\poi-ooxml-lite\5.2.5\poi-ooxml-lite-5.2.5.jar;C:\Users\joell\.m2\repository\org\apache\xmlbeans\xmlbeans\5.2.0\xmlbeans-5.2.0.jar;C:\Users\joell\.m2\repository\org\apache\commons\commons-compress\1.25.0\commons-compress-1.25.0.jar;C:\Users\joell\.m2\repository\commons-io\commons-io\2.15.0\commons-io-2.15.0.jar;C:\Users\joell\.m2\repository\com\github\virtuald\curvesapi\1.08\curvesapi-1.08.jar;C:\Users\joell\.m2\repository\org\apache\logging\log4j\log4j-api\2.23.1\log4j-api-2.23.1.jar;C:\Users\joell\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-starter-test\3.3.4\spring-boot-starter-test-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-test\3.3.4\spring-boot-test-3.3.4.jar;C:\Users\joell\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\3.3.4\spring-boot-test-autoconfigure-3.3.4.jar;C:\Users\joell\.m2\repository\com\jayway\jsonpath\json-path\2.9.0\json-path-2.9.0.jar;C:\Users\joell\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\joell\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar;C:\Users\joell\.m2\repository\net\minidev\json-smart\2.5.1\json-smart-2.5.1.jar;C:\Users\joell\.m2\repository\net\minidev\accessors-smart\2.5.1\accessors-smart-2.5.1.jar;C:\Users\joell\.m2\repository\org\ow2\asm\asm\9.6\asm-9.6.jar;C:\Users\joell\.m2\repository\org\assertj\assertj-core\3.25.3\assertj-core-3.25.3.jar;C:\Users\joell\.m2\repository\org\awaitility\awaitility\4.2.2\awaitility-4.2.2.jar;C:\Users\joell\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\joell\.m2\repository\org\junit\jupiter\junit-jupiter\5.10.3\junit-jupiter-5.10.3.jar;C:\Users\joell\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.10.3\junit-jupiter-api-5.10.3.jar;C:\Users\joell\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\joell\.m2\repository\org\junit\platform\junit-platform-commons\1.10.3\junit-platform-commons-1.10.3.jar;C:\Users\joell\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\joell\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.10.3\junit-jupiter-params-5.10.3.jar;C:\Users\joell\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.10.3\junit-jupiter-engine-5.10.3.jar;C:\Users\joell\.m2\repository\org\junit\platform\junit-platform-engine\1.10.3\junit-platform-engine-1.10.3.jar;C:\Users\joell\.m2\repository\org\mockito\mockito-core\5.11.0\mockito-core-5.11.0.jar;C:\Users\joell\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.19\byte-buddy-agent-1.14.19.jar;C:\Users\joell\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\joell\.m2\repository\org\mockito\mockito-junit-jupiter\5.11.0\mockito-junit-jupiter-5.11.0.jar;C:\Users\joell\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;C:\Users\joell\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\joell\.m2\repository\org\springframework\spring-core\6.1.13\spring-core-6.1.13.jar;C:\Users\joell\.m2\repository\org\springframework\spring-jcl\6.1.13\spring-jcl-6.1.13.jar;C:\Users\joell\.m2\repository\org\springframework\spring-test\6.1.13\spring-test-6.1.13.jar;C:\Users\joell\.m2\repository\org\xmlunit\xmlunit-core\2.9.1\xmlunit-core-2.9.1.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\joell"/>
+    <property name="user.language" value="es"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-03-18"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-24"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\joell\Downloads\proyecto -sistetms\cmms-mantenimiento"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="FILE_LOG_CHARSET" value="UTF-8"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="C:\Users\joell\AppData\Local\Temp\surefire69090137089698552\surefirebooter-20261008205856367_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="24+36-3646"/>
+    <property name="user.name" value="joell"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\joell\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\joell\AppData\Local\Temp\"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
+    <property name="java.version" value="24"/>
+    <property name="user.dir" value="C:\Users\joell\Downloads\proyecto -sistetms\cmms-mantenimiento"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="15336"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-24\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files\IBM\SPSS\Statistics\24\JRE\bin;C:\Program Files\nodejs\;C:\Users\joell\OneDrive\Documents\ffmpeg-master-latest-win64-gpl-shared\ffmpeg-master-latest-win64-gpl-shared\bin;C:\Program Files\dotnet\;C:\Program Files (x86)\ZeroTier\One\;C:\Program Files\Git\cmd;C:\Users\joell\AppData\Local\Programs\Python\Launcher\;C:\Users\joell\AppData\Local\agy\bin;C:\Users\joell\AppData\Local\Microsoft\WindowsApps;C:\Users\joell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\MySQL\MySQL Server 8.0\bin;C:\Users\joell\AppData\Roaming\npm;C:\Users\joell\AppData\Local\Programs\Antigravity IDE\bin;C:\Users\joell\.dotnet\tools;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="24+36-3646"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="68.0"/>
+    <property name="LOGGED_APPLICATION_NAME" value="[cmms-mantenimiento] "/>
+  </properties>
+  <testcase name="transicionesInvalidas" classname="com.mantenimiento.cmms.service.OrdenFlujoTest" time="0.164">
+    <system-out><![CDATA[2026-10-08T20:59:07.332-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ce1_0.id,
+        ce1_0.color,
+        ce1_0.descripcion,
+        ce1_0.nombre 
+    from
+        categoria_equipo ce1_0
+2026-10-08T20:59:07.334-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        ubicacion u1_0
+2026-10-08T20:59:07.335-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        equipo
+        (categoria_id, codigo, costo_adquisicion, critico, estado, fabricante, fecha_instalacion, modelo, nombre, numero_serie, observaciones, ubicacion_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.337-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.348-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        tecnico
+        (activo, dni, email, especialidad, nombre, telefono, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.349-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.357-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.359-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.contrasena,
+        u1_0.email,
+        u1_0.nombre,
+        u1_0.rol,
+        u1_0.ultimo_acceso,
+        u1_0.usuario 
+    from
+        tecnico t1_0 
+    left join
+        usuario u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        t1_0.id=?
+2026-10-08T20:59:07.360-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        orden_trabajo ot1_0
+2026-10-08T20:59:07.362-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        ot1_0.tecnico_id,
+        ot1_0.tipo,
+        ot1_0.titulo 
+    from
+        orden_trabajo ot1_0 
+    where
+        upper(ot1_0.numero)=upper(?)
+2026-10-08T20:59:07.363-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        orden_trabajo
+        (costo_mano_obra, creado_por, descripcion, equipo_id, estado, fecha_creacion, fecha_fin, fecha_inicio, fecha_programada, horas_mano_obra, numero, prioridad, solucion, tecnico_id, tipo, titulo) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.365-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.365-05:00  INFO 15336 --- [cmms-mantenimiento] [           main] c.m.cmms.service.OrdenService            : Orden creada: OT-0002 sobre E-INVALIDA
+2026-10-08T20:59:07.374-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.379-05:00  INFO 15336 --- [cmms-mantenimiento] [           main] c.m.cmms.service.OrdenService            : Orden iniciada: OT-0002
+2026-10-08T20:59:07.381-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    update
+        equipo 
+    set
+        categoria_id=?,
+        codigo=?,
+        costo_adquisicion=?,
+        critico=?,
+        estado=?,
+        fabricante=?,
+        fecha_instalacion=?,
+        modelo=?,
+        nombre=?,
+        numero_serie=?,
+        observaciones=?,
+        ubicacion_id=? 
+    where
+        id=?
+2026-10-08T20:59:07.382-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    update
+        orden_trabajo 
+    set
+        costo_mano_obra=?,
+        creado_por=?,
+        descripcion=?,
+        equipo_id=?,
+        estado=?,
+        fecha_creacion=?,
+        fecha_fin=?,
+        fecha_inicio=?,
+        fecha_programada=?,
+        horas_mano_obra=?,
+        numero=?,
+        prioridad=?,
+        solucion=?,
+        tecnico_id=?,
+        tipo=?,
+        titulo=? 
+    where
+        id=?
+2026-10-08T20:59:07.392-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.396-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    update
+        orden_trabajo 
+    set
+        costo_mano_obra=?,
+        creado_por=?,
+        descripcion=?,
+        equipo_id=?,
+        estado=?,
+        fecha_creacion=?,
+        fecha_fin=?,
+        fecha_inicio=?,
+        fecha_programada=?,
+        horas_mano_obra=?,
+        numero=?,
+        prioridad=?,
+        solucion=?,
+        tecnico_id=?,
+        tipo=?,
+        titulo=? 
+    where
+        id=?
+2026-10-08T20:59:07.398-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        ot1_0.tecnico_id,
+        ot1_0.tipo,
+        ot1_0.titulo 
+    from
+        orden_trabajo ot1_0
+2026-10-08T20:59:07.399-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.399-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.401-05:00  INFO 15336 --- [cmms-mantenimiento] [           main] c.m.cmms.service.OrdenService            : Orden completada: OT-0002 costo total 50
+2026-10-08T20:59:07.402-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    update
+        equipo 
+    set
+        categoria_id=?,
+        codigo=?,
+        costo_adquisicion=?,
+        critico=?,
+        estado=?,
+        fabricante=?,
+        fecha_instalacion=?,
+        modelo=?,
+        nombre=?,
+        numero_serie=?,
+        observaciones=?,
+        ubicacion_id=? 
+    where
+        id=?
+2026-10-08T20:59:07.411-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.415-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.419-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.423-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        repuesto
+        (activo, codigo, descripcion, nombre, precio_costo, proveedor_id, stock, stock_minimo, ubicacion_almacen, unidad) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.424-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.435-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.439-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.440-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.contrasena,
+        u1_0.email,
+        u1_0.nombre,
+        u1_0.rol,
+        u1_0.ultimo_acceso,
+        u1_0.usuario 
+    from
+        tecnico t1_0 
+    left join
+        usuario u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        t1_0.id=?
+2026-10-08T20:59:07.441-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        orden_trabajo ot1_0
+2026-10-08T20:59:07.442-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        ot1_0.tecnico_id,
+        ot1_0.tipo,
+        ot1_0.titulo 
+    from
+        orden_trabajo ot1_0 
+    where
+        upper(ot1_0.numero)=upper(?)
+2026-10-08T20:59:07.444-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        orden_trabajo
+        (costo_mano_obra, creado_por, descripcion, equipo_id, estado, fecha_creacion, fecha_fin, fecha_inicio, fecha_programada, horas_mano_obra, numero, prioridad, solucion, tecnico_id, tipo, titulo) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.447-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.448-05:00  INFO 15336 --- [cmms-mantenimiento] [           main] c.m.cmms.service.OrdenService            : Orden creada: OT-0003 sobre E-INVALIDA
+2026-10-08T20:59:07.457-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.458-05:00  INFO 15336 --- [cmms-mantenimiento] [           main] c.m.cmms.service.OrdenService            : Orden cancelada: OT-0003
+2026-10-08T20:59:07.460-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    update
+        orden_trabajo 
+    set
+        costo_mano_obra=?,
+        creado_por=?,
+        descripcion=?,
+        equipo_id=?,
+        estado=?,
+        fecha_creacion=?,
+        fecha_fin=?,
+        fecha_inicio=?,
+        fecha_programada=?,
+        horas_mano_obra=?,
+        numero=?,
+        prioridad=?,
+        solucion=?,
+        tecnico_id=?,
+        tipo=?,
+        titulo=? 
+    where
+        id=?
+2026-10-08T20:59:07.482-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.487-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.491-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+]]></system-out>
+  </testcase>
+  <testcase name="flujoCompleto" classname="com.mantenimiento.cmms.service.OrdenFlujoTest" time="0.137">
+    <system-out><![CDATA[2026-10-08T20:59:07.499-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ce1_0.id,
+        ce1_0.color,
+        ce1_0.descripcion,
+        ce1_0.nombre 
+    from
+        categoria_equipo ce1_0
+2026-10-08T20:59:07.502-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        ubicacion u1_0
+2026-10-08T20:59:07.505-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        equipo
+        (categoria_id, codigo, costo_adquisicion, critico, estado, fabricante, fecha_instalacion, modelo, nombre, numero_serie, observaciones, ubicacion_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.507-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.514-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        tecnico
+        (activo, dni, email, especialidad, nombre, telefono, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.516-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.524-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        repuesto
+        (activo, codigo, descripcion, nombre, precio_costo, proveedor_id, stock, stock_minimo, ubicacion_almacen, unidad) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.525-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.533-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.534-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.contrasena,
+        u1_0.email,
+        u1_0.nombre,
+        u1_0.rol,
+        u1_0.ultimo_acceso,
+        u1_0.usuario 
+    from
+        tecnico t1_0 
+    left join
+        usuario u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        t1_0.id=?
+2026-10-08T20:59:07.535-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        orden_trabajo ot1_0
+2026-10-08T20:59:07.538-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        ot1_0.tecnico_id,
+        ot1_0.tipo,
+        ot1_0.titulo 
+    from
+        orden_trabajo ot1_0 
+    where
+        upper(ot1_0.numero)=upper(?)
+2026-10-08T20:59:07.540-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        orden_trabajo
+        (costo_mano_obra, creado_por, descripcion, equipo_id, estado, fecha_creacion, fecha_fin, fecha_inicio, fecha_programada, horas_mano_obra, numero, prioridad, solucion, tecnico_id, tipo, titulo) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.542-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.542-05:00  INFO 15336 --- [cmms-mantenimiento] [           main] c.m.cmms.service.OrdenService            : Orden creada: OT-0004 sobre E-FLUJO
+2026-10-08T20:59:07.553-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.556-05:00  INFO 15336 --- [cmms-mantenimiento] [           main] c.m.cmms.service.OrdenService            : Orden iniciada: OT-0004
+2026-10-08T20:59:07.557-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    update
+        equipo 
+    set
+        categoria_id=?,
+        codigo=?,
+        costo_adquisicion=?,
+        critico=?,
+        estado=?,
+        fabricante=?,
+        fecha_instalacion=?,
+        modelo=?,
+        nombre=?,
+        numero_serie=?,
+        observaciones=?,
+        ubicacion_id=? 
+    where
+        id=?
+2026-10-08T20:59:07.558-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    update
+        orden_trabajo 
+    set
+        costo_mano_obra=?,
+        creado_por=?,
+        descripcion=?,
+        equipo_id=?,
+        estado=?,
+        fecha_creacion=?,
+        fecha_fin=?,
+        fecha_inicio=?,
+        fecha_programada=?,
+        horas_mano_obra=?,
+        numero=?,
+        prioridad=?,
+        solucion=?,
+        tecnico_id=?,
+        tipo=?,
+        titulo=? 
+    where
+        id=?
+2026-10-08T20:59:07.566-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.568-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.570-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.575-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        repuesto r1_0 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        r1_0.id=?
+2026-10-08T20:59:07.576-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        movimiento_repuesto
+        (cantidad, fecha, motivo, orden_id, registrado_por, repuesto_id, stock_resultante, tipo) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.578-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.579-05:00  INFO 15336 --- [cmms-mantenimiento] [           main] c.m.cmms.service.RepuestoService         : Movimiento SALIDA x3 sobre RP-FLUJO -> stock 7
+2026-10-08T20:59:07.584-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        detalle_repuesto
+        (cantidad, orden_id, precio_unitario, repuesto_id) 
+    values
+        (?, ?, ?, ?)
+2026-10-08T20:59:07.584-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.588-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    update
+        repuesto 
+    set
+        activo=?,
+        codigo=?,
+        descripcion=?,
+        nombre=?,
+        precio_costo=?,
+        proveedor_id=?,
+        stock=?,
+        stock_minimo=?,
+        ubicacion_almacen=?,
+        unidad=? 
+    where
+        id=?
+2026-10-08T20:59:07.599-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        repuesto r1_0 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        r1_0.id=?
+2026-10-08T20:59:07.600-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.605-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    update
+        orden_trabajo 
+    set
+        costo_mano_obra=?,
+        creado_por=?,
+        descripcion=?,
+        equipo_id=?,
+        estado=?,
+        fecha_creacion=?,
+        fecha_fin=?,
+        fecha_inicio=?,
+        fecha_programada=?,
+        horas_mano_obra=?,
+        numero=?,
+        prioridad=?,
+        solucion=?,
+        tecnico_id=?,
+        tipo=?,
+        titulo=? 
+    where
+        id=?
+2026-10-08T20:59:07.608-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        ot1_0.tecnico_id,
+        ot1_0.tipo,
+        ot1_0.titulo 
+    from
+        orden_trabajo ot1_0
+2026-10-08T20:59:07.609-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.610-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.611-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.contrasena,
+        u1_0.email,
+        u1_0.nombre,
+        u1_0.rol,
+        u1_0.ultimo_acceso,
+        u1_0.usuario 
+    from
+        tecnico t1_0 
+    left join
+        usuario u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        t1_0.id=?
+2026-10-08T20:59:07.612-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.613-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.614-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.615-05:00  INFO 15336 --- [cmms-mantenimiento] [           main] c.m.cmms.service.OrdenService            : Orden completada: OT-0004 costo total 248.25
+2026-10-08T20:59:07.616-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    update
+        equipo 
+    set
+        categoria_id=?,
+        codigo=?,
+        costo_adquisicion=?,
+        critico=?,
+        estado=?,
+        fabricante=?,
+        fecha_instalacion=?,
+        modelo=?,
+        nombre=?,
+        numero_serie=?,
+        observaciones=?,
+        ubicacion_id=? 
+    where
+        id=?
+2026-10-08T20:59:07.625-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.627-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        mr1_0.id,
+        mr1_0.cantidad,
+        mr1_0.fecha,
+        mr1_0.motivo,
+        mr1_0.orden_id,
+        mr1_0.registrado_por,
+        mr1_0.repuesto_id,
+        mr1_0.stock_resultante,
+        mr1_0.tipo 
+    from
+        movimiento_repuesto mr1_0
+2026-10-08T20:59:07.628-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+]]></system-out>
+  </testcase>
+  <testcase name="iniciarSinTecnico" classname="com.mantenimiento.cmms.service.OrdenFlujoTest" time="0.041">
+    <system-out><![CDATA[2026-10-08T20:59:07.639-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ce1_0.id,
+        ce1_0.color,
+        ce1_0.descripcion,
+        ce1_0.nombre 
+    from
+        categoria_equipo ce1_0
+2026-10-08T20:59:07.641-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        ubicacion u1_0
+2026-10-08T20:59:07.643-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        equipo
+        (categoria_id, codigo, costo_adquisicion, critico, estado, fabricante, fecha_instalacion, modelo, nombre, numero_serie, observaciones, ubicacion_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.643-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.651-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.654-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        orden_trabajo ot1_0
+2026-10-08T20:59:07.656-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        ot1_0.tecnico_id,
+        ot1_0.tipo,
+        ot1_0.titulo 
+    from
+        orden_trabajo ot1_0 
+    where
+        upper(ot1_0.numero)=upper(?)
+2026-10-08T20:59:07.658-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        orden_trabajo
+        (costo_mano_obra, creado_por, descripcion, equipo_id, estado, fecha_creacion, fecha_fin, fecha_inicio, fecha_programada, horas_mano_obra, numero, prioridad, solucion, tecnico_id, tipo, titulo) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.660-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.660-05:00  INFO 15336 --- [cmms-mantenimiento] [           main] c.m.cmms.service.OrdenService            : Orden creada: OT-0005 sobre E-SINTEC
+2026-10-08T20:59:07.669-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.672-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+]]></system-out>
+  </testcase>
+  <testcase name="completarRequiereSolucion" classname="com.mantenimiento.cmms.service.OrdenFlujoTest" time="0.066">
+    <system-out><![CDATA[2026-10-08T20:59:07.682-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ce1_0.id,
+        ce1_0.color,
+        ce1_0.descripcion,
+        ce1_0.nombre 
+    from
+        categoria_equipo ce1_0
+2026-10-08T20:59:07.685-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        ubicacion u1_0
+2026-10-08T20:59:07.686-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        equipo
+        (categoria_id, codigo, costo_adquisicion, critico, estado, fabricante, fecha_instalacion, modelo, nombre, numero_serie, observaciones, ubicacion_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.688-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.696-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        tecnico
+        (activo, dni, email, especialidad, nombre, telefono, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.699-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.706-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.708-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.contrasena,
+        u1_0.email,
+        u1_0.nombre,
+        u1_0.rol,
+        u1_0.ultimo_acceso,
+        u1_0.usuario 
+    from
+        tecnico t1_0 
+    left join
+        usuario u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        t1_0.id=?
+2026-10-08T20:59:07.709-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        orden_trabajo ot1_0
+2026-10-08T20:59:07.710-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        ot1_0.tecnico_id,
+        ot1_0.tipo,
+        ot1_0.titulo 
+    from
+        orden_trabajo ot1_0 
+    where
+        upper(ot1_0.numero)=upper(?)
+2026-10-08T20:59:07.712-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        orden_trabajo
+        (costo_mano_obra, creado_por, descripcion, equipo_id, estado, fecha_creacion, fecha_fin, fecha_inicio, fecha_programada, horas_mano_obra, numero, prioridad, solucion, tecnico_id, tipo, titulo) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.713-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.714-05:00  INFO 15336 --- [cmms-mantenimiento] [           main] c.m.cmms.service.OrdenService            : Orden creada: OT-0006 sobre E-SOLSIN
+2026-10-08T20:59:07.723-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.724-05:00  INFO 15336 --- [cmms-mantenimiento] [           main] c.m.cmms.service.OrdenService            : Orden iniciada: OT-0006
+2026-10-08T20:59:07.725-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    update
+        equipo 
+    set
+        categoria_id=?,
+        codigo=?,
+        costo_adquisicion=?,
+        critico=?,
+        estado=?,
+        fabricante=?,
+        fecha_instalacion=?,
+        modelo=?,
+        nombre=?,
+        numero_serie=?,
+        observaciones=?,
+        ubicacion_id=? 
+    where
+        id=?
+2026-10-08T20:59:07.726-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    update
+        orden_trabajo 
+    set
+        costo_mano_obra=?,
+        creado_por=?,
+        descripcion=?,
+        equipo_id=?,
+        estado=?,
+        fecha_creacion=?,
+        fecha_fin=?,
+        fecha_inicio=?,
+        fecha_programada=?,
+        horas_mano_obra=?,
+        numero=?,
+        prioridad=?,
+        solucion=?,
+        tecnico_id=?,
+        tipo=?,
+        titulo=? 
+    where
+        id=?
+2026-10-08T20:59:07.734-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.738-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.741-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+]]></system-out>
+  </testcase>
+  <testcase name="listadoFiltrado" classname="com.mantenimiento.cmms.service.OrdenFlujoTest" time="0.101">
+    <system-out><![CDATA[2026-10-08T20:59:07.748-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ce1_0.id,
+        ce1_0.color,
+        ce1_0.descripcion,
+        ce1_0.nombre 
+    from
+        categoria_equipo ce1_0
+2026-10-08T20:59:07.749-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        ubicacion u1_0
+2026-10-08T20:59:07.751-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        equipo
+        (categoria_id, codigo, costo_adquisicion, critico, estado, fabricante, fecha_instalacion, modelo, nombre, numero_serie, observaciones, ubicacion_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.752-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.759-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        tecnico
+        (activo, dni, email, especialidad, nombre, telefono, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.760-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.768-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.769-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.contrasena,
+        u1_0.email,
+        u1_0.nombre,
+        u1_0.rol,
+        u1_0.ultimo_acceso,
+        u1_0.usuario 
+    from
+        tecnico t1_0 
+    left join
+        usuario u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        t1_0.id=?
+2026-10-08T20:59:07.771-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        orden_trabajo ot1_0
+2026-10-08T20:59:07.772-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        ot1_0.tecnico_id,
+        ot1_0.tipo,
+        ot1_0.titulo 
+    from
+        orden_trabajo ot1_0 
+    where
+        upper(ot1_0.numero)=upper(?)
+2026-10-08T20:59:07.773-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        orden_trabajo
+        (costo_mano_obra, creado_por, descripcion, equipo_id, estado, fecha_creacion, fecha_fin, fecha_inicio, fecha_programada, horas_mano_obra, numero, prioridad, solucion, tecnico_id, tipo, titulo) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.774-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.775-05:00  INFO 15336 --- [cmms-mantenimiento] [           main] c.m.cmms.service.OrdenService            : Orden creada: OT-0007 sobre E-FILTRO
+2026-10-08T20:59:07.806-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        ot1_0.tecnico_id,
+        ot1_0.tipo,
+        ot1_0.titulo 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    where
+        lower(ot1_0.numero) like ? 
+        or lower(ot1_0.titulo) like ? 
+        or lower(e1_0.nombre) like ? 
+        or lower(e1_0.codigo) like ? 
+        or lower(t1_0.nombre) like ? 
+    order by
+        ot1_0.fecha_creacion desc 
+    limit
+        ? 
+    offset
+        ?
+2026-10-08T20:59:07.807-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.808-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.contrasena,
+        u1_0.email,
+        u1_0.nombre,
+        u1_0.rol,
+        u1_0.ultimo_acceso,
+        u1_0.usuario 
+    from
+        tecnico t1_0 
+    left join
+        usuario u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        t1_0.id=?
+2026-10-08T20:59:07.809-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.818-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        ot1_0.tecnico_id,
+        ot1_0.tipo,
+        ot1_0.titulo 
+    from
+        orden_trabajo ot1_0 
+    where
+        ot1_0.estado=? 
+        and ot1_0.tipo=? 
+    order by
+        ot1_0.fecha_creacion desc 
+    limit
+        ? 
+    offset
+        ?
+2026-10-08T20:59:07.819-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.819-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.contrasena,
+        u1_0.email,
+        u1_0.nombre,
+        u1_0.rol,
+        u1_0.ultimo_acceso,
+        u1_0.usuario 
+    from
+        tecnico t1_0 
+    left join
+        usuario u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        t1_0.id=?
+2026-10-08T20:59:07.820-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.821-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.823-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.823-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.823-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.826-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        ot1_0.tecnico_id,
+        ot1_0.tipo,
+        ot1_0.titulo 
+    from
+        orden_trabajo ot1_0 
+    where
+        ot1_0.estado=? 
+    order by
+        ot1_0.fecha_creacion desc 
+    limit
+        ? 
+    offset
+        ?
+2026-10-08T20:59:07.826-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.826-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.contrasena,
+        u1_0.email,
+        u1_0.nombre,
+        u1_0.rol,
+        u1_0.ultimo_acceso,
+        u1_0.usuario 
+    from
+        tecnico t1_0 
+    left join
+        usuario u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        t1_0.id=?
+2026-10-08T20:59:07.828-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.831-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        ot1_0.tecnico_id,
+        ot1_0.tipo,
+        ot1_0.titulo 
+    from
+        orden_trabajo ot1_0 
+    where
+        ot1_0.estado=? 
+    order by
+        ot1_0.fecha_creacion desc 
+    limit
+        ? 
+    offset
+        ?
+2026-10-08T20:59:07.832-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.832-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.contrasena,
+        u1_0.email,
+        u1_0.nombre,
+        u1_0.rol,
+        u1_0.ultimo_acceso,
+        u1_0.usuario 
+    from
+        tecnico t1_0 
+    left join
+        usuario u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        t1_0.id=?
+2026-10-08T20:59:07.833-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.838-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        ot1_0.tecnico_id,
+        ot1_0.tipo,
+        ot1_0.titulo 
+    from
+        orden_trabajo ot1_0 
+    where
+        ot1_0.tecnico_id=? 
+    order by
+        ot1_0.fecha_creacion desc 
+    limit
+        ? 
+    offset
+        ?
+2026-10-08T20:59:07.839-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.840-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.contrasena,
+        u1_0.email,
+        u1_0.nombre,
+        u1_0.rol,
+        u1_0.ultimo_acceso,
+        u1_0.usuario 
+    from
+        tecnico t1_0 
+    left join
+        usuario u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        t1_0.id=?
+2026-10-08T20:59:07.841-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.843-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        ot1_0.tecnico_id,
+        ot1_0.tipo,
+        ot1_0.titulo 
+    from
+        orden_trabajo ot1_0 
+    where
+        ot1_0.tecnico_id=? 
+    order by
+        ot1_0.fecha_creacion desc 
+    limit
+        ? 
+    offset
+        ?
+]]></system-out>
+  </testcase>
+  <testcase name="cancelarLiberaElEquipo" classname="com.mantenimiento.cmms.service.OrdenFlujoTest" time="0.109">
+    <system-out><![CDATA[2026-10-08T20:59:07.851-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ce1_0.id,
+        ce1_0.color,
+        ce1_0.descripcion,
+        ce1_0.nombre 
+    from
+        categoria_equipo ce1_0
+2026-10-08T20:59:07.854-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        ubicacion u1_0
+2026-10-08T20:59:07.856-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        equipo
+        (categoria_id, codigo, costo_adquisicion, critico, estado, fabricante, fecha_instalacion, modelo, nombre, numero_serie, observaciones, ubicacion_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.858-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.871-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        tecnico
+        (activo, dni, email, especialidad, nombre, telefono, usuario_id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.872-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.884-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.885-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.contrasena,
+        u1_0.email,
+        u1_0.nombre,
+        u1_0.rol,
+        u1_0.ultimo_acceso,
+        u1_0.usuario 
+    from
+        tecnico t1_0 
+    left join
+        usuario u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        t1_0.id=?
+2026-10-08T20:59:07.886-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        count(*) 
+    from
+        orden_trabajo ot1_0
+2026-10-08T20:59:07.889-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        ot1_0.tecnico_id,
+        ot1_0.tipo,
+        ot1_0.titulo 
+    from
+        orden_trabajo ot1_0 
+    where
+        upper(ot1_0.numero)=upper(?)
+2026-10-08T20:59:07.891-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        orden_trabajo
+        (costo_mano_obra, creado_por, descripcion, equipo_id, estado, fecha_creacion, fecha_fin, fecha_inicio, fecha_programada, horas_mano_obra, numero, prioridad, solucion, tecnico_id, tipo, titulo) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-10-08T20:59:07.892-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        last_insert_rowid()
+2026-10-08T20:59:07.893-05:00  INFO 15336 --- [cmms-mantenimiento] [           main] c.m.cmms.service.OrdenService            : Orden creada: OT-0008 sobre E-CANCEL
+2026-10-08T20:59:07.901-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.905-05:00  INFO 15336 --- [cmms-mantenimiento] [           main] c.m.cmms.service.OrdenService            : Orden iniciada: OT-0008
+2026-10-08T20:59:07.906-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    update
+        equipo 
+    set
+        categoria_id=?,
+        codigo=?,
+        costo_adquisicion=?,
+        critico=?,
+        estado=?,
+        fabricante=?,
+        fecha_instalacion=?,
+        modelo=?,
+        nombre=?,
+        numero_serie=?,
+        observaciones=?,
+        ubicacion_id=? 
+    where
+        id=?
+2026-10-08T20:59:07.908-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    update
+        orden_trabajo 
+    set
+        costo_mano_obra=?,
+        creado_por=?,
+        descripcion=?,
+        equipo_id=?,
+        estado=?,
+        fecha_creacion=?,
+        fecha_fin=?,
+        fecha_inicio=?,
+        fecha_programada=?,
+        horas_mano_obra=?,
+        numero=?,
+        prioridad=?,
+        solucion=?,
+        tecnico_id=?,
+        tipo=?,
+        titulo=? 
+    where
+        id=?
+2026-10-08T20:59:07.918-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.920-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u2_0.id,
+        u2_0.activo,
+        u2_0.contrasena,
+        u2_0.email,
+        u2_0.nombre,
+        u2_0.rol,
+        u2_0.ultimo_acceso,
+        u2_0.usuario,
+        ot1_0.tipo,
+        ot1_0.titulo,
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        orden_trabajo ot1_0 
+    join
+        equipo e1_0 
+            on e1_0.id=ot1_0.equipo_id 
+    left join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    left join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    left join
+        tecnico t1_0 
+            on t1_0.id=ot1_0.tecnico_id 
+    left join
+        usuario u2_0 
+            on u2_0.id=t1_0.usuario_id 
+    left join
+        detalle_repuesto d1_0 
+            on ot1_0.id=d1_0.orden_id 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        ot1_0.id=?
+2026-10-08T20:59:07.924-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    update
+        orden_trabajo 
+    set
+        costo_mano_obra=?,
+        creado_por=?,
+        descripcion=?,
+        equipo_id=?,
+        estado=?,
+        fecha_creacion=?,
+        fecha_fin=?,
+        fecha_inicio=?,
+        fecha_programada=?,
+        horas_mano_obra=?,
+        numero=?,
+        prioridad=?,
+        solucion=?,
+        tecnico_id=?,
+        tipo=?,
+        titulo=? 
+    where
+        id=?
+2026-10-08T20:59:07.926-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        ot1_0.id,
+        ot1_0.costo_mano_obra,
+        ot1_0.creado_por,
+        ot1_0.descripcion,
+        ot1_0.equipo_id,
+        ot1_0.estado,
+        ot1_0.fecha_creacion,
+        ot1_0.fecha_fin,
+        ot1_0.fecha_inicio,
+        ot1_0.fecha_programada,
+        ot1_0.horas_mano_obra,
+        ot1_0.numero,
+        ot1_0.prioridad,
+        ot1_0.solucion,
+        ot1_0.tecnico_id,
+        ot1_0.tipo,
+        ot1_0.titulo 
+    from
+        orden_trabajo ot1_0
+2026-10-08T20:59:07.926-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.928-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.929-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.contrasena,
+        u1_0.email,
+        u1_0.nombre,
+        u1_0.rol,
+        u1_0.ultimo_acceso,
+        u1_0.usuario 
+    from
+        tecnico t1_0 
+    left join
+        usuario u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        t1_0.id=?
+2026-10-08T20:59:07.930-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.931-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.contrasena,
+        u1_0.email,
+        u1_0.nombre,
+        u1_0.rol,
+        u1_0.ultimo_acceso,
+        u1_0.usuario 
+    from
+        tecnico t1_0 
+    left join
+        usuario u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        t1_0.id=?
+2026-10-08T20:59:07.932-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.932-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.933-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.contrasena,
+        u1_0.email,
+        u1_0.nombre,
+        u1_0.rol,
+        u1_0.ultimo_acceso,
+        u1_0.usuario 
+    from
+        tecnico t1_0 
+    left join
+        usuario u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        t1_0.id=?
+2026-10-08T20:59:07.934-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+2026-10-08T20:59:07.935-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        t1_0.activo,
+        t1_0.dni,
+        t1_0.email,
+        t1_0.especialidad,
+        t1_0.nombre,
+        t1_0.telefono,
+        u1_0.id,
+        u1_0.activo,
+        u1_0.contrasena,
+        u1_0.email,
+        u1_0.nombre,
+        u1_0.rol,
+        u1_0.ultimo_acceso,
+        u1_0.usuario 
+    from
+        tecnico t1_0 
+    left join
+        usuario u1_0 
+            on u1_0.id=t1_0.usuario_id 
+    where
+        t1_0.id=?
+2026-10-08T20:59:07.936-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.936-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.937-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.938-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.939-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.940-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.940-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        d1_0.orden_id,
+        d1_0.id,
+        d1_0.cantidad,
+        d1_0.precio_unitario,
+        d1_0.repuesto_id,
+        r1_0.id,
+        r1_0.activo,
+        r1_0.codigo,
+        r1_0.descripcion,
+        r1_0.nombre,
+        r1_0.precio_costo,
+        p1_0.id,
+        p1_0.email,
+        p1_0.nombre,
+        p1_0.ruc,
+        p1_0.telefono,
+        r1_0.stock,
+        r1_0.stock_minimo,
+        r1_0.ubicacion_almacen,
+        r1_0.unidad 
+    from
+        detalle_repuesto d1_0 
+    left join
+        repuesto r1_0 
+            on r1_0.id=d1_0.repuesto_id 
+    left join
+        proveedor p1_0 
+            on p1_0.id=r1_0.proveedor_id 
+    where
+        d1_0.orden_id=?
+2026-10-08T20:59:07.941-05:00  INFO 15336 --- [cmms-mantenimiento] [           main] c.m.cmms.service.OrdenService            : Orden cancelada: OT-0008
+2026-10-08T20:59:07.943-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    update
+        equipo 
+    set
+        categoria_id=?,
+        codigo=?,
+        costo_adquisicion=?,
+        critico=?,
+        estado=?,
+        fabricante=?,
+        fecha_instalacion=?,
+        modelo=?,
+        nombre=?,
+        numero_serie=?,
+        observaciones=?,
+        ubicacion_id=? 
+    where
+        id=?
+2026-10-08T20:59:07.954-05:00 DEBUG 15336 --- [cmms-mantenimiento] [           main] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.categoria_id,
+        c1_0.id,
+        c1_0.color,
+        c1_0.descripcion,
+        c1_0.nombre,
+        e1_0.codigo,
+        e1_0.costo_adquisicion,
+        e1_0.critico,
+        e1_0.estado,
+        e1_0.fabricante,
+        e1_0.fecha_instalacion,
+        e1_0.modelo,
+        e1_0.nombre,
+        e1_0.numero_serie,
+        e1_0.observaciones,
+        e1_0.ubicacion_id,
+        u1_0.id,
+        u1_0.descripcion,
+        u1_0.nombre 
+    from
+        equipo e1_0 
+    join
+        categoria_equipo c1_0 
+            on c1_0.id=e1_0.categoria_id 
+    join
+        ubicacion u1_0 
+            on u1_0.id=e1_0.ubicacion_id 
+    where
+        e1_0.id=?
+]]></system-out>
+  </testcase>
+</testsuite>

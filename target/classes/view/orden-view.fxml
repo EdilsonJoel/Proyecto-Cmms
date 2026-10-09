@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import atlantafx.base.controls.CustomTextField?>
+<?import com.mantenimiento.cmms.ui.Paginador?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mantenimiento.cmms.controller.OrdenesController"
+      styleClass="pagina">
+
+    <!-- ============ Formulario (panel lateral) ============ -->
+    <fx:define>
+        <VBox fx:id="panelFormulario" styleClass="drawer" prefWidth="470.0" maxWidth="470.0" maxHeight="Infinity">
+            <HBox styleClass="drawer-header">
+                <StackPane styleClass="drawer-icono"><FontIcon iconLiteral="fth-clipboard"/></StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                    <Label fx:id="lblTituloFormulario" text="Nueva orden" styleClass="drawer-titulo"/>
+                    <Label fx:id="lblSubtituloFormulario" text="Registra la intervencion"
+                           styleClass="drawer-subtitulo"/>
+                </VBox>
+                <Button onAction="#onCerrarFormulario" styleClass="flat,button-circle">
+                    <graphic><FontIcon iconLiteral="fth-x"/></graphic>
+                </Button>
+            </HBox>
+
+            <ScrollPane fitToWidth="true" styleClass="drawer-scroll" VBox.vgrow="ALWAYS">
+                <VBox styleClass="drawer-body">
+                    <Label text="DATOS DE LA ORDEN" styleClass="seccion-form"/>
+
+                    <VBox styleClass="campo">
+                        <Label text="Equipo *" styleClass="campo-label"/>
+                        <ComboBox fx:id="cmbEquipo" promptText="Selecciona el equipo"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+
+                    <VBox styleClass="campo">
+                        <Label text="Titulo del trabajo *" styleClass="campo-label"/>
+                        <TextField fx:id="txtTitulo" promptText="Ej. Cambio de rodamientos"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+
+                    <HBox spacing="14.0">
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Tipo *" styleClass="campo-label"/>
+                            <ComboBox fx:id="cmbFTipo"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Prioridad *" styleClass="campo-label"/>
+                            <ComboBox fx:id="cmbFPrioridad"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                    </HBox>
+
+                    <HBox spacing="14.0">
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Fecha programada" styleClass="campo-label"/>
+                            <DatePicker fx:id="dpProgramada" promptText="dd/mm/aaaa"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Tecnico asignado" styleClass="campo-label"/>
+                            <ComboBox fx:id="cmbFTecnico" promptText="Sin asignar"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                    </HBox>
+
+                    <VBox styleClass="campo">
+                        <Label text="Descripcion" styleClass="campo-label"/>
+                        <TextArea fx:id="taDescripcion" promptText="Detalla el trabajo solicitado"
+                                  prefRowCount="3"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+
+                    <Label text="COSTOS DE MANO DE OBRA" styleClass="seccion-form"/>
+
+                    <HBox spacing="14.0">
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Horas" styleClass="campo-label"/>
+                            <TextField fx:id="txtFHoras" promptText="Ej. 2.5"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Costo S/" styleClass="campo-label"/>
+                            <TextField fx:id="txtFCostoMO" promptText="Ej. 150.00"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                    </HBox>
+
+                    <TitledPane fx:id="seccionRepuestos" text="REPUESTOS UTILIZADOS" expanded="true">
+                        <VBox spacing="10.0" styleClass="drawer-body">
+                            <VBox styleClass="campo">
+                                <Label text="Repuesto" styleClass="campo-label"/>
+                                <ComboBox fx:id="cmbFRepuesto" promptText="Selecciona (muestra stock)"/>
+                            </VBox>
+                            <HBox spacing="10.0" alignment="CENTER_LEFT">
+                                <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                                    <Label text="Cantidad" styleClass="campo-label"/>
+                                    <TextField fx:id="txtFCantidad" promptText="1"/>
+                                    <Label styleClass="campo-error" visible="false" managed="false"/>
+                                </VBox>
+                                <Button fx:id="btnAgregarRep" text="Agregar" onAction="#onAgregarRepuesto"
+                                        styleClass="accent" maxHeight="Infinity" alignment="CENTER"
+                                        layoutY="20.0">
+                                    <graphic><FontIcon iconLiteral="fth-plus"/></graphic>
+                                </Button>
+                            </HBox>
+                            <TableView fx:id="tablaDetalles" prefHeight="180.0" maxHeight="220.0">
+                                <columns>
+                                    <TableColumn fx:id="colRepuesto" text="REPUESTO" prefWidth="230.0"/>
+                                    <TableColumn fx:id="colCantidad" text="CANT." prefWidth="80.0"/>
+                                    <TableColumn fx:id="colSubtotal" text="SUBTOTAL" prefWidth="110.0"/>
+                                </columns>
+                            </TableView>
+                            <Button fx:id="btnQuitarRep" text="Quitar seleccionado" onAction="#onQuitarRepuesto"
+                                    styleClass="button-outlined,danger" maxWidth="Infinity">
+                                <graphic><FontIcon iconLiteral="fth-trash-2"/></graphic>
+                            </Button>
+                        </VBox>
+                    </TitledPane>
+                </VBox>
+            </ScrollPane>
+
+            <HBox styleClass="drawer-footer">
+                <Button text="Cancelar" onAction="#onCerrarFormulario" styleClass="button-outlined"/>
+                <Button text="Guardar" onAction="#onGuardar" styleClass="accent" defaultButton="true">
+                    <graphic><FontIcon iconLiteral="fth-check"/></graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </fx:define>
+
+    <!-- ============ Cabecera ============ -->
+    <HBox styleClass="pagina-cabecera">
+        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+            <Label text="Ordenes de trabajo" styleClass="pagina-titulo"/>
+            <Label text="Flujo completo: apertura, ejecucion, cierre y costos de cada intervencion"
+                   styleClass="pagina-subtitulo"/>
+        </VBox>
+        <Button fx:id="btnNueva" text="Nueva orden" onAction="#onNueva" styleClass="accent,boton-principal">
+            <graphic><FontIcon iconLiteral="fth-plus"/></graphic>
+        </Button>
+    </HBox>
+
+    <!-- ============ Tabla ============ -->
+    <VBox styleClass="tarjeta" VBox.vgrow="ALWAYS">
+        <HBox styleClass="barra-herramientas">
+            <CustomTextField fx:id="txtBuscar" promptText="Buscar por OT, titulo, equipo o tecnico"
+                             styleClass="buscador" prefWidth="320.0">
+                <left><FontIcon iconLiteral="fth-search"/></left>
+            </CustomTextField>
+            <ComboBox fx:id="cmbEstado" prefWidth="170.0" styleClass="filtro"/>
+            <ComboBox fx:id="cmbTipo" prefWidth="160.0" styleClass="filtro"/>
+            <Button text="Limpiar" onAction="#onLimpiar" styleClass="button-outlined">
+                <graphic><FontIcon iconLiteral="fth-x"/></graphic>
+            </Button>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnEditar" text="Editar" onAction="#onEditar" styleClass="button-outlined" disable="true">
+                <graphic><FontIcon iconLiteral="fth-edit-2"/></graphic>
+            </Button>
+            <Button fx:id="btnIniciar" text="Iniciar" onAction="#onIniciar" styleClass="button-outlined" disable="true">
+                <graphic><FontIcon iconLiteral="fth-play"/></graphic>
+            </Button>
+            <Button fx:id="btnCompletar" text="Completar" onAction="#onCompletar" styleClass="button-outlined" disable="true">
+                <graphic><FontIcon iconLiteral="fth-check-circle"/></graphic>
+            </Button>
+            <Button fx:id="btnCancelar" text="Cancelar OT" onAction="#onCancelar" styleClass="button-outlined" disable="true">
+                <graphic><FontIcon iconLiteral="fth-x-circle"/></graphic>
+            </Button>
+            <Button fx:id="btnPdf" text="PDF" onAction="#onPdf" styleClass="button-outlined" disable="true">
+                <graphic><FontIcon iconLiteral="fth-file-text"/></graphic>
+            </Button>
+            <Button fx:id="btnEliminar" text="Eliminar" onAction="#onEliminar" styleClass="button-outlined,danger" disable="true">
+                <graphic><FontIcon iconLiteral="fth-trash-2"/></graphic>
+            </Button>
+        </HBox>
+
+        <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colNumero"    text="ORDEN"       prefWidth="95.0"/>
+                <TableColumn fx:id="colTitulo"    text="TRABAJO"     prefWidth="250.0"/>
+                <TableColumn fx:id="colEquipo"    text="EQUIPO"      prefWidth="210.0"/>
+                <TableColumn fx:id="colTipo"      text="TIPO"        prefWidth="110.0"/>
+                <TableColumn fx:id="colPrioridad" text="PRIORIDAD"   prefWidth="105.0"/>
+                <TableColumn fx:id="colEstado"    text="ESTADO"      prefWidth="130.0"/>
+                <TableColumn fx:id="colTecnico"   text="TECNICO"      prefWidth="160.0"/>
+                <TableColumn fx:id="colProgramada" text="PROGRAMADA" prefWidth="120.0"/>
+                <TableColumn fx:id="colCosto"     text="COSTO TOTAL" prefWidth="130.0" styleClass="celda-importe"/>
+            </columns>
+        </TableView>
+
+        <Paginador fx:id="paginador"/>
+    </VBox>
+</VBox>

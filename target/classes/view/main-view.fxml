@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import atlantafx.base.controls.ModalPane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<!--
+  Arquitectura de interfaz "centro de mando":
+  1) barra de marca + paleta de comandos (Ctrl+K) y sesion,
+  2) navegacion en pildoras con capsula animada (sin lateral izquierdo generico),
+  3) contenido,
+  4) consola plegable con la bitacora del agente (transparencia),
+  5) dock de estado con progreso, pausa y cancelacion (control constante).
+-->
+<StackPane xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:id="raiz"
+           fx:controller="com.mantenimiento.cmms.controller.MainController"
+           styleClass="app"
+           prefWidth="1360.0" prefHeight="860.0" minWidth="1120.0" minHeight="720.0">
+
+    <fx:define>
+        <ToggleGroup fx:id="menu"/>
+        <ToggleGroup fx:id="grupoFiltro"/>
+    </fx:define>
+
+    <VBox styleClass="marco">
+
+        <!-- ============ FILA 1: BARRA DE MANDO ============ -->
+        <HBox styleClass="barra-superior" alignment="CENTER_LEFT" spacing="14.0" prefHeight="58.0">
+
+            <HBox styleClass="marca" spacing="10.0" alignment="CENTER_LEFT">
+                <ImageView fitWidth="34.0" fitHeight="34.0" pickOnBounds="true" smooth="true"
+                           styleClass="marca-logo-img">
+                    <image><Image url="@img/logo.png"/></image>
+                </ImageView>
+                <VBox spacing="0.0">
+                    <Label text="ManteniMax" styleClass="marca-titulo"/>
+                    <Label fx:id="lblContexto" text="Centro de mando" styleClass="marca-contexto"/>
+                </VBox>
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- Disparador de la paleta de comandos: el gesto moderno de busqueda total -->
+            <Button fx:id="btnPaleta" onAction="#onPaleta" styleClass="paleta-boton">
+                <graphic>
+                    <HBox spacing="8.0" alignment="CENTER_LEFT">
+                        <FontIcon iconLiteral="fth-search"/>
+                        <Label text="Buscar o ejecutar" styleClass="paleta-texto"/>
+                        <Label text="Ctrl K" styleClass="atajo-chip"/>
+                    </HBox>
+                </graphic>
+            </Button>
+
+            <Button fx:id="btnTema" text="Modo oscuro" onAction="#onCambiarTema" styleClass="barra-btn">
+                <graphic><FontIcon iconLiteral="fth-moon"/></graphic>
+            </Button>
+
+            <Separator orientation="VERTICAL" styleClass="barra-separador"/>
+
+            <HBox spacing="9.0" alignment="CENTER_RIGHT" styleClass="sesion-caja">
+                <Label fx:id="avatarUsuario" text="A" styleClass="avatar"/>
+                <VBox spacing="0.0" alignment="CENTER_LEFT">
+                    <Label fx:id="lblUsuario" text="Usuario" styleClass="sesion-nombre"/>
+                    <Label fx:id="lblRol" text="Rol" styleClass="sesion-rol"/>
+                </VBox>
+                <Button fx:id="btnSalir" text="Salir" onAction="#onSalir" styleClass="barra-btn">
+                    <graphic><FontIcon iconLiteral="fth-log-out"/></graphic>
+                </Button>
+            </HBox>
+        </HBox>
+
+        <!-- ============ FILA 2: NAVEGACION EN PILDORAS ============ -->
+        <HBox styleClass="barra-navegacion" alignment="CENTER_LEFT" prefHeight="46.0" spacing="10.0">
+            <StackPane HBox.hgrow="ALWAYS" alignment="CENTER_LEFT" styleClass="navegacion-caja">
+                <Region fx:id="indicador" styleClass="nav-capsula"/>
+                <HBox fx:id="navegacion" spacing="4.0" alignment="CENTER_LEFT" styleClass="navegacion">
+                    <ToggleButton fx:id="navDashboard" text="Dashboard" toggleGroup="$menu" styleClass="nav-pil">
+                        <graphic><FontIcon iconLiteral="fth-grid"/></graphic>
+                    </ToggleButton>
+                    <ToggleButton fx:id="navOrdenes" text="Ordenes" toggleGroup="$menu" styleClass="nav-pil">
+                        <graphic><FontIcon iconLiteral="fth-clipboard"/></graphic>
+                    </ToggleButton>
+                    <ToggleButton fx:id="navPreventivo" text="Preventivo" toggleGroup="$menu" styleClass="nav-pil">
+                        <graphic><FontIcon iconLiteral="fth-calendar"/></graphic>
+                    </ToggleButton>
+                    <ToggleButton fx:id="navEquipos" text="Equipos" toggleGroup="$menu" styleClass="nav-pil">
+                        <graphic><FontIcon iconLiteral="fth-box"/></graphic>
+                    </ToggleButton>
+                    <ToggleButton fx:id="navRepuestos" text="Repuestos" toggleGroup="$menu" styleClass="nav-pil">
+                        <graphic><FontIcon iconLiteral="fth-package"/></graphic>
+                    </ToggleButton>
+                    <ToggleButton fx:id="navCatalogos" text="Catalogos" toggleGroup="$menu" styleClass="nav-pil">
+                        <graphic><FontIcon iconLiteral="fth-layers"/></graphic>
+                    </ToggleButton>
+                    <ToggleButton fx:id="navTecnicos" text="Tecnicos" toggleGroup="$menu" styleClass="nav-pil">
+                        <graphic><FontIcon iconLiteral="fth-users"/></graphic>
+                    </ToggleButton>
+                    <ToggleButton fx:id="navReportes" text="Reportes" toggleGroup="$menu" styleClass="nav-pil">
+                        <graphic><FontIcon iconLiteral="fth-bar-chart-2"/></graphic>
+                    </ToggleButton>
+                    <ToggleButton fx:id="navUsuarios" text="Usuarios" toggleGroup="$menu" styleClass="nav-pil">
+                        <graphic><FontIcon iconLiteral="fth-user-check"/></graphic>
+                    </ToggleButton>
+                </HBox>
+            </StackPane>
+            <Label text="↑↓ Enter Esc" styleClass="atajo-chip" contentDisplay="RIGHT"/>
+        </HBox>
+
+        <!-- ============ CONTENIDO ============ -->
+        <StackPane fx:id="contenido" styleClass="contenido" VBox.vgrow="ALWAYS"/>
+
+        <!-- ============ CONSOLA: BITACORA DEL AGENTE ============ -->
+        <VBox fx:id="consola" styleClass="consola" prefHeight="0.0" minHeight="0.0"
+              maxHeight="-Infinity" visible="false">
+
+            <HBox styleClass="consola-cabecera" alignment="CENTER_LEFT" spacing="8.0" prefHeight="40.0">
+                <FontIcon iconLiteral="fth-terminal" styleClass="consola-icono"/>
+                <Label text="Bitacora del agente" styleClass="consola-titulo"/>
+                <Label text="que hace el sistema, con que fuente y por que" styleClass="consola-subtitulo"/>
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <ToggleButton fx:id="filtroTodo" text="Todo" toggleGroup="$grupoFiltro"
+                              styleClass="filtro-pil" selected="true"/>
+                <ToggleButton fx:id="filtroConsulta" text="Consultas BD" toggleGroup="$grupoFiltro"
+                              styleClass="filtro-pil"/>
+                <ToggleButton fx:id="filtroCalculo" text="Calculos" toggleGroup="$grupoFiltro"
+                              styleClass="filtro-pil"/>
+                <ToggleButton fx:id="filtroDecision" text="Decisiones" toggleGroup="$grupoFiltro"
+                              styleClass="filtro-pil"/>
+                <ToggleButton fx:id="filtroAviso" text="Avisos" toggleGroup="$grupoFiltro"
+                              styleClass="filtro-pil"/>
+                <ToggleButton fx:id="filtroError" text="Errores" toggleGroup="$grupoFiltro"
+                              styleClass="filtro-pil"/>
+
+                <Separator/>
+                <Button fx:id="btnCopiarTraza" text="Copiar" onAction="#onCopiarTraza"
+                        styleClass="dock-btn">
+                    <graphic><FontIcon iconLiteral="fth-copy"/></graphic>
+                </Button>
+                <Button fx:id="btnExportarTraza" text="Guardar .txt" onAction="#onExportarTraza"
+                        styleClass="dock-btn">
+                    <graphic><FontIcon iconLiteral="fth-save"/></graphic>
+                </Button>
+                <Button fx:id="btnLimpiarTraza" text="Limpiar" onAction="#onLimpiarTraza"
+                        styleClass="dock-btn">
+                    <graphic><FontIcon iconLiteral="fth-trash-2"/></graphic>
+                </Button>
+                <Button fx:id="btnCerrarConsola" onAction="#onCerrarConsola"
+                        styleClass="dock-btn,consola-cerrar">
+                    <graphic><FontIcon iconLiteral="fth-x"/></graphic>
+                </Button>
+            </HBox>
+
+            <TableView fx:id="tablaTrazas" styleClass="tabla-consola" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="colHora" text="Hora" prefWidth="104.0"/>
+                    <TableColumn fx:id="colTipo" text="Tipo" prefWidth="96.0"/>
+                    <TableColumn fx:id="colActividad" text="Actividad" prefWidth="340.0"/>
+                    <TableColumn fx:id="colFuente" text="Fuente consultada" prefWidth="200.0"/>
+                    <TableColumn fx:id="colCriterio" text="Criterio / detalle" prefWidth="330.0"/>
+                    <TableColumn fx:id="colDuracion" text="Duracion" prefWidth="92.0"/>
+                </columns>
+                <placeholder>
+                    <Label text="La bitacora esta vacia: ejecuta una accion y aqui aparecera cada paso con su fuente y su criterio."
+                           styleClass="consola-vacio" wrapText="true"/>
+                </placeholder>
+            </TableView>
+        </VBox>
+
+        <!-- ============ DOCK DE ESTADO Y CONTROL ============ -->
+        <HBox fx:id="dock" styleClass="dock" alignment="CENTER_LEFT" spacing="10.0" prefHeight="44.0">
+            <FontIcon fx:id="icoActividad" iconLiteral="fth-activity" styleClass="dock-ico"/>
+            <Label fx:id="lblActividad" text="Listo — sin acciones en curso" styleClass="dock-actividad"
+                   HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+            <Label fx:id="chipActividad" text="" styleClass="chip,neutro"/>
+            <ProgressBar fx:id="barraActividad" progress="-1.0" prefWidth="170.0"
+                         maxWidth="170.0" styleClass="dock-progreso"/>
+            <Button fx:id="btnPausa" text="Pausar" onAction="#onPausa" styleClass="dock-btn" disable="true">
+                <graphic><FontIcon iconLiteral="fth-pause"/></graphic>
+            </Button>
+            <Button fx:id="btnCancelarAccion" text="Cancelar" onAction="#onCancelarAccion"
+                    styleClass="dock-btn,dock-peligro" disable="true">
+                <graphic><FontIcon iconLiteral="fth-x-circle"/></graphic>
+            </Button>
+            <Separator orientation="VERTICAL"/>
+            <Label fx:id="lblPasos" text="0 pasos" styleClass="dock-pasos"/>
+            <Button fx:id="btnConsola" text="Bitacora" onAction="#onAlternarConsola" styleClass="dock-btn">
+                <graphic><FontIcon iconLiteral="fth-terminal"/></graphic>
+            </Button>
+        </HBox>
+    </VBox>
+
+    <!-- Capas flotantes: panel de formulario, dialogos y notificaciones -->
+    <ModalPane fx:id="modalPanel"/>
+    <ModalPane fx:id="modalDialogo"/>
+    <VBox fx:id="zonaNotificaciones" styleClass="zona-notificaciones" spacing="10.0"
+          pickOnBounds="false" alignment="BOTTOM_RIGHT" viewOrder="-100"
+          StackPane.alignment="BOTTOM_RIGHT" maxWidth="-Infinity" maxHeight="-Infinity"/>
+</StackPane>

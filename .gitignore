@@ -1,28 +1,10 @@
-# ---- compilacion Maven ----
-target/
+# Solo archivos temporales y basura del sistema.
+# El resto (dist/, target/, *.db, .idea/, build/staging) SI se sube:
+# los binarios grandes van por Git LFS (ver .gitattributes).
 *.class
-*.jar
-
-# ---- base de datos local (SQLite) ----
-*.db
-*.db-journal
-*.db-wal
-*.db-shm
-
-# ---- empaquetado del ejecutable ----
-dist/
-build/staging/
-
-# ---- entornos e IDE ----
-.idea/
-*.iml
-.vscode/
-.settings/
-.classpath
-.project
-
-# ---- logs y temporales ----
 *.log
 hs_err_pid*
 replay_pid*
 ~$*
+Thumbs.db
+Desktop.ini

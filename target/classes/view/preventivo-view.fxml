@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import atlantafx.base.controls.CustomTextField?>
+<?import com.mantenimiento.cmms.ui.Paginador?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mantenimiento.cmms.controller.PreventivoController"
+      styleClass="pagina">
+
+    <fx:define>
+        <VBox fx:id="panelFormulario" styleClass="drawer" prefWidth="470.0" maxWidth="470.0" maxHeight="Infinity">
+            <HBox styleClass="drawer-header">
+                <StackPane styleClass="drawer-icono"><FontIcon iconLiteral="fth-calendar"/></StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                    <Label fx:id="lblTituloFormulario" text="Nuevo plan" styleClass="drawer-titulo"/>
+                    <Label fx:id="lblSubtituloFormulario" text="Mantenimiento preventivo" styleClass="drawer-subtitulo"/>
+                </VBox>
+                <Button onAction="#onCerrarFormulario" styleClass="flat,button-circle">
+                    <graphic><FontIcon iconLiteral="fth-x"/></graphic>
+                </Button>
+            </HBox>
+
+            <ScrollPane fitToWidth="true" styleClass="drawer-scroll" VBox.vgrow="ALWAYS">
+                <VBox styleClass="drawer-body">
+                    <Label text="PLAN DE MANTENIMIENTO" styleClass="seccion-form"/>
+                    <Label text="Cuando llegue la fecha proxima, el sistema genera la orden automaticamente."
+                           styleClass="campo-ayuda"/>
+
+                    <VBox styleClass="campo">
+                        <Label text="Equipo *" styleClass="campo-label"/>
+                        <ComboBox fx:id="cmbEquipo" promptText="Selecciona el equipo"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+
+                    <VBox styleClass="campo">
+                        <Label text="Nombre de la tarea" styleClass="campo-label"/>
+                        <TextField fx:id="txtNombre" promptText="Ej. Cambio de aceite y filtros"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+
+                    <HBox spacing="14.0">
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Frecuencia (dias) *" styleClass="campo-label"/>
+                            <TextField fx:id="txtFrecuencia" promptText="Ej. 30"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Horas estimadas" styleClass="campo-label"/>
+                            <TextField fx:id="txtHoras" promptText="Ej. 2.5"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                    </HBox>
+
+                    <HBox spacing="14.0">
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Proxima fecha *" styleClass="campo-label"/>
+                            <DatePicker fx:id="dpProxima" promptText="dd/mm/aaaa"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Tecnico de referencia" styleClass="campo-label"/>
+                            <ComboBox fx:id="cmbTecnico" promptText="Sin asignar"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                    </HBox>
+
+                    <VBox styleClass="campo" alignment="CENTER_LEFT">
+                        <Label text="Estado del plan" styleClass="campo-label"/>
+                        <CheckBox fx:id="chkActivo" text="Plan activo"/>
+                    </VBox>
+
+                    <VBox styleClass="campo">
+                        <Label text="Tarea / observaciones" styleClass="campo-label"/>
+                        <TextArea fx:id="taObservaciones" promptText="Pasos, repuestos sugeridos, cuidados…"
+                                  prefRowCount="3"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+                </VBox>
+            </ScrollPane>
+
+            <HBox styleClass="drawer-footer">
+                <Button text="Cancelar" onAction="#onCerrarFormulario" styleClass="button-outlined"/>
+                <Button text="Guardar" onAction="#onGuardar" styleClass="accent" defaultButton="true">
+                    <graphic><FontIcon iconLiteral="fth-check"/></graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </fx:define>
+
+    <!-- ============ Cabecera ============ -->
+    <HBox styleClass="pagina-cabecera">
+        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+            <Label text="Mantenimiento preventivo" styleClass="pagina-titulo"/>
+            <Label text="Planes por equipo y generacion automatica de ordenes de trabajo"
+                   styleClass="pagina-subtitulo"/>
+        </VBox>
+        <Button fx:id="btnGenerar" text="Generar ordenes" onAction="#onGenerar" styleClass="accent">
+            <graphic><FontIcon iconLiteral="fth-refresh-cw"/></graphic>
+        </Button>
+        <Button fx:id="btnNueva" text="Nuevo plan" onAction="#onNueva" styleClass="accent,boton-principal">
+            <graphic><FontIcon iconLiteral="fth-plus"/></graphic>
+        </Button>
+    </HBox>
+
+    <Label fx:id="lblAviso" styleClass="banner" visible="false" managed="false" wrapText="true">
+        <graphic><FontIcon iconLiteral="fth-alert-triangle"/></graphic>
+    </Label>
+
+    <!-- ============ Tabla ============ -->
+    <VBox styleClass="tarjeta" VBox.vgrow="ALWAYS">
+        <HBox styleClass="barra-herramientas">
+            <CustomTextField fx:id="txtBuscar" promptText="Buscar por equipo o tarea"
+                             styleClass="buscador" prefWidth="320.0">
+                <left><FontIcon iconLiteral="fth-search"/></left>
+            </CustomTextField>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnEditar" text="Editar" onAction="#onEditar" styleClass="button-outlined" disable="true">
+                <graphic><FontIcon iconLiteral="fth-edit-2"/></graphic>
+            </Button>
+            <Button fx:id="btnEliminar" text="Eliminar" onAction="#onEliminar" styleClass="button-outlined,danger" disable="true">
+                <graphic><FontIcon iconLiteral="fth-trash-2"/></graphic>
+            </Button>
+        </HBox>
+
+        <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colEquipo"     text="EQUIPO"      prefWidth="280.0"/>
+                <TableColumn fx:id="colTarea"      text="TAREA"       prefWidth="260.0"/>
+                <TableColumn fx:id="colFrecuencia" text="FRECUENCIA"  prefWidth="140.0"/>
+                <TableColumn fx:id="colProxima"    text="PROXIMA"     prefWidth="130.0"/>
+                <TableColumn fx:id="colTecnico"    text="TECNICO"     prefWidth="180.0"/>
+                <TableColumn fx:id="colEstado"     text="ESTADO"      prefWidth="130.0"/>
+            </columns>
+        </TableView>
+
+        <Paginador fx:id="paginador"/>
+    </VBox>
+</VBox>

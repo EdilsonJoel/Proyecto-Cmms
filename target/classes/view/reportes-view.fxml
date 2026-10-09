@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mantenimiento.cmms.controller.ReportesController"
+      styleClass="pagina" spacing="16.0">
+
+    <!-- ============ Cabecera ============ -->
+    <HBox styleClass="pagina-cabecera">
+        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+            <Label text="Reportes" styleClass="pagina-titulo"/>
+            <Label text="Exporta el reporte ejecutivo del mantenimiento en Excel o PDF"
+                   styleClass="pagina-subtitulo"/>
+        </VBox>
+    </HBox>
+
+    <!-- ============ Periodo ============ -->
+    <VBox styleClass="tarjeta,kpi" spacing="12.0">
+        <Label text="PERIODO DEL REPORTE" styleClass="grafico-titulo"/>
+        <HBox spacing="14.0" alignment="CENTER_LEFT">
+            <VBox styleClass="campo">
+                <Label text="Desde" styleClass="campo-label"/>
+                <DatePicker fx:id="dpDesde" promptText="dd/mm/aaaa"/>
+                <Label styleClass="campo-error" visible="false" managed="false"/>
+            </VBox>
+            <VBox styleClass="campo">
+                <Label text="Hasta" styleClass="campo-label"/>
+                <DatePicker fx:id="dpHasta" promptText="dd/mm/aaaa"/>
+                <Label styleClass="campo-error" visible="false" managed="false"/>
+            </VBox>
+            <Button text="Mes actual" onAction="#onMesActual" styleClass="button-outlined">
+                <graphic><FontIcon iconLiteral="fth-calendar"/></graphic>
+            </Button>
+            <Button text="Ultimos 30 dias" onAction="#onUltimos30" styleClass="button-outlined">
+                <graphic><FontIcon iconLiteral="fth-clock"/></graphic>
+            </Button>
+            <Button text="Este anio" onAction="#onEsteAnio" styleClass="button-outlined">
+                <graphic><FontIcon iconLiteral="fth-file-text"/></graphic>
+            </Button>
+        </HBox>
+        <Label fx:id="lblPeriodo" text="—" styleClass="ranking-nombre"/>
+        <Label fx:id="lblResumen" text="—" styleClass="ranking-detalle"/>
+    </VBox>
+
+    <!-- ============ Opciones de exportacion ============ -->
+    <HBox spacing="16.0">
+
+        <VBox fx:id="panelExcel" styleClass="tarjeta,grafico" spacing="10.0" HBox.hgrow="ALWAYS" prefHeight="260.0">
+            <HBox spacing="12.0" alignment="CENTER_LEFT">
+                <StackPane styleClass="kpi-icono"><FontIcon iconLiteral="fth-grid"/></StackPane>
+                <Label text="Libro de Excel (.xlsx)" styleClass="grafico-titulo"/>
+            </HBox>
+            <Label text="Cinco hojas con formato profesional, listas para filtrar y pivotear:"
+                   styleClass="grafico-subtitulo"/>
+            <VBox spacing="6.0" styleClass="ranking">
+                <Label text="1. Resumen ejecutivo con KPIs del periodo" styleClass="ranking-nombre"/>
+                <Label text="2. Detalle de todas las ordenes de trabajo" styleClass="ranking-nombre"/>
+                <Label text="3. Costos agrupados por equipo" styleClass="ranking-nombre"/>
+                <Label text="4. Inventario valorizado de repuestos" styleClass="ranking-nombre"/>
+                <Label text="5. Cumplimiento de los planes preventivos" styleClass="ranking-nombre"/>
+            </VBox>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="Descargar Excel" onAction="#onExportarExcel" styleClass="accent,boton-principal"
+                    maxWidth="Infinity">
+                <graphic><FontIcon iconLiteral="fth-download"/></graphic>
+            </Button>
+        </VBox>
+
+        <VBox fx:id="panelPdf" styleClass="tarjeta,grafico" spacing="10.0" HBox.hgrow="ALWAYS" prefHeight="260.0">
+            <HBox spacing="12.0" alignment="CENTER_LEFT">
+                <StackPane styleClass="kpi-icono"><FontIcon iconLiteral="fth-file-text"/></StackPane>
+                <Label text="Reporte ejecutivo (PDF)" styleClass="grafico-titulo"/>
+            </HBox>
+            <Label text="Documento A4 listo para impresion y revision de direccion:"
+                   styleClass="grafico-subtitulo"/>
+            <VBox spacing="6.0" styleClass="ranking">
+                <Label text="Portada con el periodo y la empresa" styleClass="ranking-nombre"/>
+                <Label text="Disponibilidad, MTTR, costos y ordenes activas" styleClass="ranking-nombre"/>
+                <Label text="Graficos de costos, estados y tipos" styleClass="ranking-nombre"/>
+                <Label text="Top de equipos mas costosos y carga por tecnico" styleClass="ranking-nombre"/>
+                <Label text="Alertas de stock y preventivos vencidos" styleClass="ranking-nombre"/>
+            </VBox>
+            <Region VBox.vgrow="ALWAYS"/>
+            <Button text="Descargar PDF" onAction="#onExportarPdf" styleClass="accent,boton-principal"
+                    maxWidth="Infinity">
+                <graphic><FontIcon iconLiteral="fth-download"/></graphic>
+            </Button>
+        </VBox>
+
+    </HBox>
+
+    <!-- ============ Nota ============ -->
+    <VBox styleClass="tarjeta" spacing="8.0">
+        <Label text="TAMBIEN PUEDES EXPORTAR DESDE CADA VISTA" styleClass="grafico-titulo"/>
+        <Label text="· Ordenes: el boton PDF genera la orden de trabajo individual con firmas para taller.&#10;· Dashboard: mantiene siempre el ultimo cierre mensual.&#10;· Los archivos se abren con la aplicacion predeterminada del sistema (Excel, navegador o visor PDF)."
+               styleClass="ranking-detalle" wrapText="true"/>
+    </VBox>
+</VBox>

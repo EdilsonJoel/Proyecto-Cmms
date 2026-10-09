@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import atlantafx.base.controls.CustomTextField?>
+<?import com.mantenimiento.cmms.ui.Paginador?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mantenimiento.cmms.controller.RepuestoController"
+      styleClass="pagina">
+
+    <fx:define>
+        <VBox fx:id="panelFormulario" styleClass="drawer" prefWidth="470.0" maxWidth="470.0" maxHeight="Infinity">
+            <HBox styleClass="drawer-header">
+                <StackPane styleClass="drawer-icono"><FontIcon iconLiteral="fth-package"/></StackPane>
+                <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+                    <Label fx:id="lblTituloFormulario" text="Nuevo repuesto" styleClass="drawer-titulo"/>
+                    <Label fx:id="lblSubtituloFormulario" text="Pieza del almacen" styleClass="drawer-subtitulo"/>
+                </VBox>
+                <Button onAction="#onCerrarFormulario" styleClass="flat,button-circle">
+                    <graphic><FontIcon iconLiteral="fth-x"/></graphic>
+                </Button>
+            </HBox>
+
+            <ScrollPane fitToWidth="true" styleClass="drawer-scroll" VBox.vgrow="ALWAYS">
+                <VBox styleClass="drawer-body">
+                    <Label text="IDENTIFICACION" styleClass="seccion-form"/>
+
+                    <HBox spacing="14.0">
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Codigo *" styleClass="campo-label"/>
+                            <TextField fx:id="txtCodigo" promptText="Ej. RP-001"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS" prefWidth="150.0">
+                            <Label text="Unidad" styleClass="campo-label"/>
+                            <TextField fx:id="txtUnidad" promptText="pza"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                    </HBox>
+
+                    <VBox styleClass="campo">
+                        <Label text="Nombre *" styleClass="campo-label"/>
+                        <TextField fx:id="txtNombre" promptText="Ej. Rodamiento 6205-2RS"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+
+                    <VBox styleClass="campo">
+                        <Label text="Descripcion" styleClass="campo-label"/>
+                        <TextArea fx:id="taDescripcion" promptText="Especificaciones, medidas, aplicacion…"
+                                  prefRowCount="3"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+
+                    <Label text="INVENTARIO" styleClass="seccion-form"/>
+                    <Label text="El stock no se edita aqui: se mueve con entradas, salidas y ajustes del kardex."
+                           styleClass="campo-ayuda"/>
+
+                    <HBox spacing="14.0">
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Stock minimo" styleClass="campo-label"/>
+                            <TextField fx:id="txtStockMinimo" promptText="Ej. 5"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Precio costo S/" styleClass="campo-label"/>
+                            <TextField fx:id="txtPrecio" promptText="Ej. 25.50"/>
+                            <Label styleClass="campo-error" visible="false" managed="false"/>
+                        </VBox>
+                    </HBox>
+
+                    <HBox spacing="14.0">
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS">
+                            <Label text="Ubicacion en almacen" styleClass="campo-label"/>
+                            <TextField fx:id="txtUbicacionAlmacen" promptText="Ej. Estante B-3"/>
+                        </VBox>
+                        <VBox styleClass="campo" HBox.hgrow="ALWAYS" alignment="CENTER_LEFT">
+                            <Label text="Estado" styleClass="campo-label"/>
+                            <CheckBox fx:id="chkActivo" text="Activo"/>
+                        </VBox>
+                    </HBox>
+
+                    <VBox styleClass="campo">
+                        <Label text="Proveedor" styleClass="campo-label"/>
+                        <ComboBox fx:id="cmbProveedor" promptText="Sin proveedor asignado"/>
+                        <Label styleClass="campo-error" visible="false" managed="false"/>
+                    </VBox>
+                </VBox>
+            </ScrollPane>
+
+            <HBox styleClass="drawer-footer">
+                <Button text="Cancelar" onAction="#onCerrarFormulario" styleClass="button-outlined"/>
+                <Button text="Guardar" onAction="#onGuardar" styleClass="accent" defaultButton="true">
+                    <graphic><FontIcon iconLiteral="fth-check"/></graphic>
+                </Button>
+            </HBox>
+        </VBox>
+    </fx:define>
+
+    <!-- ============ Cabecera ============ -->
+    <HBox styleClass="pagina-cabecera">
+        <VBox spacing="4.0" HBox.hgrow="ALWAYS">
+            <Label text="Repuestos" styleClass="pagina-titulo"/>
+            <Label text="Inventario del almacen: stock, minimo, valor y kardex de movimientos"
+                   styleClass="pagina-subtitulo"/>
+        </VBox>
+        <Button fx:id="btnNueva" text="Nuevo repuesto" onAction="#onNueva" styleClass="accent,boton-principal">
+            <graphic><FontIcon iconLiteral="fth-plus"/></graphic>
+        </Button>
+    </HBox>
+
+    <!-- ============ Tabla ============ -->
+    <VBox styleClass="tarjeta" VBox.vgrow="ALWAYS">
+        <HBox styleClass="barra-herramientas">
+            <CustomTextField fx:id="txtBuscar" promptText="Buscar por codigo, nombre o proveedor"
+                             styleClass="buscador" prefWidth="320.0">
+                <left><FontIcon iconLiteral="fth-search"/></left>
+            </CustomTextField>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnMovimiento" text="Movimiento" onAction="#onMovimiento" styleClass="button-outlined" disable="true">
+                <graphic><FontIcon iconLiteral="fth-repeat"/></graphic>
+            </Button>
+            <Button fx:id="btnKardex" text="Kardex" onAction="#onKardex" styleClass="button-outlined" disable="true">
+                <graphic><FontIcon iconLiteral="fth-clock"/></graphic>
+            </Button>
+            <Button fx:id="btnEditar" text="Editar" onAction="#onEditar" styleClass="button-outlined" disable="true">
+                <graphic><FontIcon iconLiteral="fth-edit-2"/></graphic>
+            </Button>
+            <Button fx:id="btnEliminar" text="Eliminar" onAction="#onEliminar" styleClass="button-outlined,danger" disable="true">
+                <graphic><FontIcon iconLiteral="fth-trash-2"/></graphic>
+            </Button>
+        </HBox>
+
+        <TableView fx:id="tabla" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colCodigo"   text="CODIGO"   prefWidth="110.0"/>
+                <TableColumn fx:id="colNombre"   text="REPUESTO" prefWidth="300.0"/>
+                <TableColumn fx:id="colStock"    text="STOCK"    prefWidth="130.0"/>
+                <TableColumn fx:id="colMinimo"   text="MINIMO"   prefWidth="100.0"/>
+                <TableColumn fx:id="colPrecio"   text="P. COSTO" prefWidth="120.0" styleClass="celda-importe"/>
+                <TableColumn fx:id="colValor"    text="VALOR"    prefWidth="130.0" styleClass="celda-importe"/>
+                <TableColumn fx:id="colProveedor" text="PROVEEDOR" prefWidth="220.0"/>
+            </columns>
+        </TableView>
+
+        <Paginador fx:id="paginador"/>
+    </VBox>
+</VBox>

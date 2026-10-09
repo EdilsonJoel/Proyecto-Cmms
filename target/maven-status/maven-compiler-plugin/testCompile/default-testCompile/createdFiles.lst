@@ -1,0 +1,12 @@
+com\mantenimiento\cmms\agente\TrazasAspectTest.class
+com\mantenimiento\cmms\service\RepuestoStockTest.class
+com\mantenimiento\cmms\agente\AgenteTareasTest.class
+com\mantenimiento\cmms\service\SeguridadTest.class
+com\mantenimiento\cmms\IntegracionBase.class
+com\mantenimiento\cmms\service\OrdenFlujoTest.class
+com\mantenimiento\cmms\service\PreventivoTest.class
+com\mantenimiento\cmms\agente\TrazadorTest.class
+com\mantenimiento\cmms\agente\RecomendadorTest.class
+com\mantenimiento\cmms\service\ReporteIntegracionTest.class
+com\mantenimiento\cmms\VistasFxmlTest.class
+com\mantenimiento\cmms\exception\DiagnosticoTest.class
